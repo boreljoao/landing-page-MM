@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Validados - Comunidade Premium</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Partículas flutuantes -->
+    <div class="floating-particles" id="particles"></div>
+    
+    <!-- Ícones flutuantes -->
+    <div class="floating-icons">
+        <i class="fas fa-chart-line icon-1"></i>
+        <i class="fas fa-coins icon-2"></i>
+        <i class="fas fa-trophy icon-3"></i>
+        <i class="fas fa-rocket icon-4"></i>
+    </div>
+
+    <!-- Notificações de atividade -->
+    <div id="activity-notifications"></div>
+
+    <!-- Botão flutuante de CTA -->
+    <div class="floating-cta" id="floating-cta">
+        <div class="cta-pulse-wrapper">
+            <button class="cta-button-small" onclick="scrollToCheckout()">
+                <span class="font-bold">GARANTIR VAGA</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 1 - HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">VOCÊ NÃO PRECISA MAIS <span class="highlight-text">CONTAR COM A SORTE</span></h1>
+                <p class="hero-subtitle">Aprenda métodos testados e validados por quem <span class="highlight-text">vive disso todos os dias</span>.</p>
+                <p class="hero-description">
+                    Entre agora para a comunidade mais unida e que mais cresce no meio dos métodos <span class="badge-accent">0 risco</span> e <span class="badge-accent">baixo investimento</span>.
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bullseye feature-icon"></i>
+                        <h3>Delay & Super Odds</h3>
+                        <p>Técnicas avançadas para maximizar seus resultados</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-money-bill-wave feature-icon"></i>
+                        <h3>Cashout & Rollover</h3>
+                        <p>Estratégias inteligentes de saída e gestão</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-area feature-icon"></i>
+                        <h3>Gestão & Estratégias Reais</h3>
+                        <p>Métodos comprovados para crescimento sustentável</p>
+                    </div>
+                </div>
+
+                <div class="scarcity-badge">
+                    🔒 Acesso Imediato – Vagas Limitadas
+                </div>
+
+                <div style="display: block; max-width: 200px; margin: auto;" class="urgency-timer" id="countdown-timer">
+                    <div class="timer-label">⏰ Oferta expira em:</div>
+                    <div class="timer-display">
+                        <span id="hours">23</span>:<span id="minutes">59</span>:<span id="seconds">59</span>
+                    </div>
+                </div>
+
+                <div class="cta-container">
+                    <a href="#checkout" class="cta-button pulse-button" onclick="scrollToCheckout()">
+                        👉 QUERO LUCRAR AGORA
+                    </a>
+                </div>
+                
+                <!-- Indicador de rolagem -->
+                <div style="margin: auto;" class="scroll-indicator">
+                    <p>Descubra mais</p>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2 - AUTORIDADE -->
+    <section class="section" id="authority">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge-container">
+                    <div class="badge-premium">
+                        <i class="fas fa-chart-line"></i>
+                        RESULTADOS COMPROVADOS
+                    </div>
+                </div>
+                <h2 class="section-title">AQUI VOCÊ APRENDE A FAZER DINHEIRO <span class="highlight-underline">COM MÉTODOS QUE FUNCIONAM</span></h2>
+                
+                <div class="section-intro">
+                    <p class="text-strike">Esquece esse papo de grupo VIP que só te manda entrada aleatória.</p>
+                    <p class="text-highlight">Na nossa comunidade, você aprende de verdade:</p>
+                </div>
+            </div>
+
+            <ul class="benefits-list">
+                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Como</span>&ThinSpace; aplicar o Delay sem riscos</li>
+                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Como</span>&ThinSpace; identificar Super Odds com valor real</li>
+                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Técnicas</span>&ThinSpace; de Cashout antecipado com lucro</li>
+                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Rollover</span>&ThinSpace; inteligente e estratégias de extração</li>
+                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Como</span>&ThinSpace; gerenciar banca sem emoção</li>
+                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Sem</span>&ThinSpace; entradas de viciados, apenas métodos</li>
+                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Mentalidade</span>&ThinSpace; de longo prazo para viver de métodos</li>
+            </ul>
+
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-success">97%</span>
+                        <span class="stat-label">Taxa de Sucesso</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-members">5000+</span>
+                        <span class="stat-label">Membros Ativos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-profit">R$ 200K+</span>
+                        <span class="stat-label">Lucro Gerado</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-box">
+                <p class="testimonial-text">
+                    Tudo explicado no <span class="highlight-text">passo a passo</span>, com suporte e interação diária entre os membros.
+                </p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>4.9/5 por mais de 300 alunos</span>
+                </div>
+            </div>
+
+            <div style="margin: auto; display: flex;
+            align-items: center; flex-direction: column;" class="cta-container">
+                <a href="#checkout" class="cta-button-secondary" onclick="scrollToCheckout()">
+                    QUERO APRENDER AGORA
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <p class="cta-note">⚡ Acesso imediato após a compra</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3 - CHAMADA PARA AÇÃO -->
+    <section class="section" id="call-to-action">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge-container">
+                    <div class="badge-premium green">
+                        <i class="fas fa-users"></i>
+                        COMUNIDADE EXCLUSIVA
+                    </div>
+                </div>
+                <h2 class="section-title">FAÇA PARTE DA FAMÍLIA E <span class="highlight-underline">MUDE SUA REALIDADE FINANCEIRA</span></h2>
+                <p class="section-subtitle">Nosso foco é <span class="highlight-text">crescer juntos</span>. Aqui ninguém é individualista.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Ambiente 100% colaborativo</h3>
+                    <p>Compartilhe experiências, tire dúvidas e cresça junto com outros membros em um ambiente focado em resultados.</p>
+                    <div class="benefit-tag">
+                        <i class="fas fa-star"></i>
+                        <span>Benefício exclusivo</span>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Acesso a conteúdos exclusivos</h3>
+                    <p>Materiais detalhados e explicativos que vão te ensinar desde o básico até técnicas avançadas de operação.</p>
+                    <div class="benefit-tag">
+                        <i class="fas fa-star"></i>
+                        <span>Benefício exclusivo</span>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Estratégias atualizadas</h3>
+                    <p>Receba estratégias atualizadas diretamente de quem vive disso, testadas e comprovadas no dia a dia.</p>
+                    <div class="benefit-tag">
+                        <i class="fas fa-star"></i>
+                        <span>Benefício exclusivo</span>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Resultados reais todos os dias</h3>
+                    <p>Acompanhe resultados reais e consistentes, com transparência total sobre ganhos e estratégias utilizadas.</p>
+                    <div class="benefit-tag">
+                        <i class="fas fa-star"></i>
+                        <span>Benefício exclusivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-box large">
+                <p class="testimonial-text">
+                    Se você quer <span class="highlight-text">aprender</span>, <span class="highlight-text">crescer</span> e <span class="highlight-text">ganhar dinheiro</span> com métodos sérios — seja bem-vindo à nossa comunidade.
+                </p>
+            </div>
+
+            <div class="activity-indicator">
+                <div class="pulse-dot"></div>
+                <p>Pessoas entrando agora mesmo...</p>
+            </div>
+
+            <div style="display: flex; align-items: center; flex-direction: column;" class="cta-container">
+                <a href="#checkout" class="cta-button-primary" onclick="scrollToCheckout()">
+                    QUERO ENTRAR AGORA
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4 - GARANTIA -->
+    <section class="section" id="guarantee">
+        <div class="container">
+            <div class="countdown-banner">
+                <div class="countdown-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="countdown-text">
+                    <span class="countdown-label">OFERTA POR TEMPO LIMITADO:</span>
+                    <span class="countdown-timer" id="countdown-small"></span>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <div class="badge-container">
+                    <div class="badge-premium yellow">
+                        <i class="fas fa-shield-alt"></i>
+                        GARANTIA TOTAL
+                    </div>
+                </div>
+                <h2 class="section-title">ESTÁ CANSADO DE SER <span class="highlight-underline">ILUDIDO COM PROMESSAS?</span></h2>
+                
+                <div class="section-intro">
+                    <p>A diferença aqui é simples:</p>
+                    <p class="text-highlight">A gente mostra o caminho, ensina a pescar e anda junto.</p>
+                    <p class="badge-accent large">Você não depende de ninguém para lucrar — aprende a fazer por conta própria.</p>
+                </div>
+            </div>
+
+            <div class="benefits-row">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>+Resultados reais</h3>
+                    <p>Acompanhe diariamente os resultados obtidos pelos membros da comunidade e pelos nossos especialistas.</p>
+                    <div class="value-tag">VALOR INESTIMÁVEL</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>+Aprendizado</h3>
+                    <p>Conteúdo estruturado para que você aprenda de verdade e consiga aplicar os métodos por conta própria.</p>
+                    <div class="value-tag">VALOR INESTIMÁVEL</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>+Liberdade</h3>
+                    <p>Desenvolva autonomia para aplicar os métodos quando e onde quiser, sem depender de "gurus".</p>
+                    <div class="value-tag">VALOR INESTIMÁVEL</div>
+                </div>
+            </div>
+
+            <div class="guarantee-box">
+                <div class="guarantee-content">
+                    <div class="guarantee-info">
+                        <div class="guarantee-header">
+                            <div class="guarantee-line"></div>
+                            <p class="guarantee-label">VAGAS LIMITADAS</p>
+                        </div>
+                        <p class="guarantee-item"><span class="guarantee-marker">📌</span> Vagas controladas para manter a qualidade do grupo.</p>
+                        <p class="guarantee-item"><span class="guarantee-marker">📌</span> Prioridade para quem quer realmente se dedicar.</p>
+                        
+                        <div class="vacancy-counter">
+                            <div class="vacancy-dot"></div>
+                            <span>Apenas <strong>7</strong> vagas restantes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="guarantee-cta">
+                        <div class="cta-glow">
+                            <a href="#checkout" class="cta-button-final" onclick="scrollToCheckout()">
+                                QUERO GARANTIR MINHA VAGA AGORA
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="security-badges">
+                            <div class="security-badge">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="security-badge">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span>Pagamento 100% seguro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="final-warning">
+                <div class="warning-content">
+                    <p><span class="text-danger">Não perca tempo!</span> As vagas são limitadas e podem encerrar a qualquer momento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE CHECKOUT -->
+    <section class="section checkout-section" id="checkout">
+        <div class="container">
+            <h2 class="checkout-title">COMPLETE SEU CADASTRO</h2>
+            <p class="checkout-subtitle">Você está a um passo de transformar sua realidade financeira</p>
+            
+            <div class="checkout-container">
+                <div class="checkout-product">
+                    <div class="product-details">
+                        <h3>Comunidade Métodos Validados</h3>
+                        <div class="product-features">
+                            <p><i class="fas fa-check"></i> Acesso vitalício à comunidade</p>
+                            <p><i class="fas fa-check"></i> Todas as estratégias e métodos</p>
+                            <p><i class="fas fa-check"></i> Suporte exclusivo 24/7</p>
+                            <p><i class="fas fa-check"></i> Atualizações constantes</p>
+                        </div>
+                        <div class="product-price">
+                            <div class="price-original">De <span>R$ 997,00</span> por</div>
+                            <div class="price-current">R$ 497,00</div>
+                            <div class="price-installment">ou 12x de R$ 49,70</div>
+                        </div>
+                    </div>
+                    <div class="product-timer">
+                        <p>Oferta expira em:</p>
+                        <div class="checkout-timer" id="checkout-timer"></div>
+                    </div>
+                </div>
+                
+                <div class="checkout-form">
+                    <form id="payment-form">
+                        <div class="form-section">
+                            <h4>Informações Pessoais</h4>
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h4>Informações de Pagamento</h4>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="credit">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Cartão de Crédito</span>
+                                </div>
+                                <div class="payment-method" data-method="pix">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>PIX</span>
+                                </div>
+                                <div class="payment-method" data-method="boleto">
+                                    <i class="fas fa-barcode"></i>
+                                    <span>Boleto</span>
+                                </div>
+                            </div>
+                            
+                            <div id="credit-payment" class="payment-form active">
+                                <div class="form-group">
+                                    <label for="card-number">Número do Cartão</label>
+                                    <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="card-expiry">Validade</label>
+                                        <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="card-cvc">CVV</label>
+                                        <input type="text" id="card-cvc" name="card-cvc" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-name">Nome no Cartão</label>
+                                    <input type="text" id="card-name" name="card-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="installments">Parcelas</label>
+                                    <select id="installments" name="installments">
+                                        <option value="1">À vista - R$ 497,00</option>
+                                        <option value="2">2x de R$ 248,50</option>
+                                        <option value="3">3x de R$ 165,67</option>
+                                        <option value="4">4x de R$ 124,25</option>
+                                        <option value="5">5x de R$ 99,40</option>
+                                        <option value="6">6x de R$ 82,83</option>
+                                        <option value="12">12x de R$ 49,70</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div id="pix-payment" class="payment-form">
+                                <div class="pix-container">
+                                    <div class="pix-qrcode">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QR Code PIX">
+                                    </div>
+                                    <div class="pix-instructions">
+                                        <p>1. Abra o app do seu banco</p>
+                                        <p>2. Escolha pagar com PIX</p>
+                                        <p>3. Escaneie o QR code</p>
+                                        <p>4. Confirme o pagamento</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="boleto-payment" class="payment-form">
+                                <div class="boleto-container">
+                                    <p>Ao clicar em "Gerar Boleto", você receberá o boleto por e-mail para pagamento.</p>
+                                    <p>O acesso será liberado em até 3 dias úteis após a compensação.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-action">
+                            <button type="submit" class="checkout-button" id="checkout-button">
+                                GARANTIR MINHA VAGA AGORA
+                            </button>
+                            <div class="security-info">
+                                <i class="fas fa-lock"></i>
+                                <span>Seus dados estão protegidos por criptografia de ponta a ponta</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="current-year"></span> Métodos Validados. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Sucesso -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Pagamento Confirmado!</h3>
+            <p>Parabéns! Seu acesso à Comunidade Métodos Validados foi liberado com sucesso.</p>
+            <p>Você receberá um e-mail com as instruções de acesso em instantes.</p>
+            <button class="modal-button">Entendi</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
