@@ -1,0 +1,916 @@
+/* style.css */
+
+:root {
+    --primary: #00A9FF;
+    --secondary: #F7B500;
+    --accent: #2979FF;
+    --dark: #10141F;
+    --light: #FFFFFF;
+    --highlight: #FFD700;
+    --success-green: #28a745;
+}
+
+/* --- Global Reset & Body --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--light);
+    line-height: 1.6;
+    background-image: url('/assets/images/fundo.png'); /* CHECAR CAMINHO */
+    background-color: var(--dark); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    overflow-x: hidden;
+    position: relative; 
+    min-height: 100%;
+}
+
+body::before { 
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 169, 255, 0.05) 0%,  
+        rgba(247, 181, 0, 0.05) 50%, 
+        rgba(41, 121, 255, 0.05) 100%);
+    background-size: 300% 300%;
+    animation: GradientBackground 20s ease infinite;
+    z-index: -1; 
+    pointer-events: none;
+}
+
+/* --- Particle System --- */
+.particles-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; 
+}
+
+.particle { 
+    position: absolute;
+    background: #60a5fa; 
+    border-radius: 50%;
+    animation: float 10s ease-in-out infinite; 
+}
+.particle.small { width: 2px; height: 2px; animation-duration: 12s;}
+.particle.medium { width: 4px; height: 4px; animation-duration: 10s;}
+.particle.large { width: 6px; height: 6px; animation-duration: 8s;}
+.particle.blue { background: #60a5fa; } 
+.particle.cyan { background: #ff0000e8; } 
+.particle.purple { background: #ffffff; } 
+.particle.pink { background: #ff5100; } 
+
+
+/* --- Layout & General --- */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative; 
+    z-index: 2; 
+}
+
+/* --- Header --- */
+header {
+    background-color: rgba(16, 20, 31, 0.85); 
+    color: var(--light);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 169, 255, 0.3);
+    transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+header.scrolled {
+    padding: 10px 0;
+    background-color: rgba(16, 20, 31, 0.95);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.header-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 22px; font-weight: 800; color: var(--light); text-decoration: none; display: flex; align-items: center; }
+.logo span { color: var(--primary); margin-left: 5px; font-weight: 900; }
+.logo i { margin-right: 10px; color: var(--secondary); font-size: 20px; }
+
+/* --- Buttons --- */
+.cta-button { /* Standard CTA in header */
+    background: linear-gradient(45deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--light); padding: 10px 25px; border-radius: 50px;
+    text-decoration: none; font-weight: 700; transition: all 0.3s ease;
+    display: inline-block; box-shadow: 0 4px 15px rgba(0, 169, 255, 0.25);
+    border: none; cursor: pointer; text-transform: uppercase;
+    font-size: 13px; letter-spacing: 0.5px; position: relative; overflow: hidden;
+}
+.cta-button::after {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: 0.5s;
+}
+.cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 169, 255, 0.4); }
+.cta-button:hover::after { left: 100%; }
+
+.hero-cta-button { 
+    background: linear-gradient(to right, var(--secondary), var(--highlight));
+    border: none; color: var(--dark); padding: 15px 10px;
+    text-align: center; text-decoration: none; display: block; 
+    font-size: 1.2rem; font-weight: bold;
+    box-shadow: 0 5px 20px rgba(247, 181, 0, 0.5);
+    transition: all 0.3s ease; cursor: pointer;
+    width: 80%; text-transform: uppercase;
+    border-radius: 20px; margin: 20px auto 0; 
+}
+.hero-cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(247, 181, 0, 0.7); }
+
+.cta-button-large { /* For mid-page CTA section card button */
+    background: linear-gradient(45deg, var(--primary) 0%, var(--accent) 100%); /* Changed to blue to match image reference */
+    color: var(--light); 
+    padding: 15px 20px; /* Adjusted padding */
+    border-radius: 50px;
+    text-decoration: none; font-weight: 700; /* Adjusted font-weight */
+    font-size: 1.1rem; 
+    transition: all 0.3s ease; 
+    display: block; /* Changed to block */
+    width: calc(100% - 40px); 
+    max-width: 300px; 
+    margin: -50px auto 20px auto; /* To overlay image */
+    box-shadow: 0 5px 15px rgba(0, 169, 255, 0.3);
+    position: relative; overflow: hidden; text-transform: uppercase; letter-spacing: 0.8px;
+    z-index: 2; /* To be on top of image in card */
+    text-align: center;
+}
+.cta-button-large:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 20px rgba(0, 169, 255, 0.4); }
+.cta-button-large::after { /* Shine effect for blue button */
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: 0.5s;
+}
+.cta-button-large:hover::after { left: 100%; }
+
+.final-button { 
+    background: linear-gradient(45deg, var(--secondary) 0%, var(--highlight) 100%);
+    color: var(--dark); padding: 18px 55px; border-radius: 50px;
+    text-decoration: none; font-weight: 800; font-size: 1.2rem;
+    transition: all 0.5s ease; display: inline-block;
+    box-shadow: 0 8px 25px rgba(247, 181, 0, 0.45);
+    position: relative; overflow: hidden; text-transform: uppercase; letter-spacing: 0.8px;
+    animation: pulseButton 1.8s infinite;
+}
+.final-button:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 12px 35px rgba(247, 181, 0, 0.6); animation: none; }
+
+/* --- Hero Section --- */
+.hero {
+    color: var(--light); padding: 120px 0 80px; text-align: left;
+    position: relative; min-height: 700px; display: flex;
+    align-items: center; overflow: hidden; z-index: 1; 
+}
+.grafico-fundo { 
+    position: absolute; top: 0; bottom: -1%; left: 0; width: 100%; height: 100%; 
+    background-image: url('/assets/images/grafico.png'); /* CHECAR CAMINHO */
+    background-size: cover; background-repeat: no-repeat; background-position: bottom center;
+    z-index: 1; filter: brightness(1.2) contrast(0.9); mix-blend-mode: screen; 
+}
+.hero-content-wrapper { 
+    position: relative; z-index: 2; 
+    width: 100%; max-width: 1100px; margin: 0 auto; display: flex;
+}
+.hero-left-panel {
+    width: 35%;
+    background-image: url('/assets/images/fundotexto.png'); /* CHECAR CAMINHO */
+    background-size: cover; background-position: center;
+    padding: 10px 30px 30px 30px;
+    display: flex; flex-direction: column; justify-content: space-around;
+    border-radius: 12px 0 0 12px; height: 600px; align-self: center;
+    position: relative; z-index: 1; 
+}
+.hero-left-panel::before{
+    content: ''; position: absolute; top: -4%; left: 30.5%;
+    width: 150px; height: 150px;
+    background-image: url('/assets/images/logo-pro-code.png'); /* CHECAR CAMINHO */
+    background-size: contain; background-repeat: no-repeat; background-position: center;
+    z-index: 2; 
+}
+.pro-code-logo-hero { margin-bottom: 30px; }
+.pro-code-logo-hero h1 {
+    font-size: 3rem; font-weight: bold; color: white;
+    text-shadow: 0 0 6px var(--primary), 0 0 12px var(--primary), 0 0 18px var(--accent), 0 0 24px var(--accent);
+    letter-spacing: 2px; line-height: 0.9;
+}
+.pro-code-logo-hero .line2 { margin-left: 30px; margin-top: -10px; }
+.pro-code-subtext-hero { display: flex; align-items: center; margin-top: 15px; font-size: 0.9rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
+.pro-code-subtext-hero i { margin-right: 8px; font-size: 1.2rem; }
+.hero-right-visuals { position: relative; flex-grow: 1; height: 580px; align-self: center; z-index: 2; }
+.hero-person-image { 
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-45%);
+    width: 600px; height: 90%; object-fit: contain; z-index: 3; 
+}
+.hero-bet-card {
+    position: absolute; width: 250px; /* Base width, will be overridden in media queries */
+    height: auto; border-radius: 10px;
+    transition: transform 0.3s ease, z-index 0.3s ease; z-index: 4; 
+}
+.hero-bet-card img { width: 100%; height: auto; display: block; border-radius: 10px; } /* Ensure images within cards are responsive */
+.hero-bet-card:hover { transform: scale(1.05); z-index: 6; } 
+#bet-card-1 { top: -5%; right: 1%; width: 300px; z-index: 3; } 
+#bet-card-1:hover { z-index: 6; transform: scale(1.08); }
+#bet-card-2 {bottom: -5%; right: -1%; width: 350px; z-index: 4; } 
+#bet-card-3 { top: 20%; left: 4%; width: 320px; z-index: 4; }
+.hero-coin { position: absolute; object-fit: contain; animation: pulseCoin 3.5s infinite ease-in-out; z-index: 5; }
+#coin-1 { width: 220px; height: 220px; bottom: 1%; left: 15%; animation-delay: 0s; }
+#coin-3 { width: 200px; height: 300px; top: 22%; right: 4%; opacity: 0.75; animation-delay: 1.2s; z-index: 2;} 
+#coin-5 { width: 200px; height: 200px; top: 2%; right: 50%; opacity: 0.75; animation-delay: 1.2s; z-index: 2;}
+
+/* --- Stars (Separate Particle Effect) --- */
+.stars-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.star { position: absolute; background: white; border-radius: 50%; animation: twinkle 5s ease-in-out infinite; } 
+.star.small { width: 1px; height: 1px; animation-duration: 7s; }
+.star.medium { width: 2px; height: 2px; animation-duration: 5s; }
+.star.large { width: 3px; height: 3px; animation-duration: 3s; }
+.star.bright { background: #60a5fa; box-shadow: 0 0 6px #60a5fa; }
+.star.golden { background: #fbbf24; box-shadow: 0 0 8px #fbbf24; }
+
+/* --- Section Title (Generic) --- */
+.section-title { text-align: center; margin-bottom: 60px; }
+.section-title h2 {
+    font-size: 2.3rem; color: var(--light); margin-bottom: 15px;
+    font-weight: 800; position: relative; display: inline-block;
+}
+.section-title h2::after {
+    content: ''; position: absolute; bottom: 0px; left: 0; width: 70%; height: 8px;
+    background-color: var(--primary); z-index: -1; opacity: 0.6;
+    transform: translateX(15%) rotate(-1.5deg);
+}
+.section-title p { color: #b0bec5; max-width: 650px; margin: 0 auto; font-size: 1.05rem; }
+
+/* --- Results Section (Contains JS Carousel) --- */
+.results {
+    padding: 100px 0; /* Adjusted padding-bottom */
+    background: var(--dark); 
+    position: relative; z-index: 1; color: var(--light);
+    clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%); /* Optional clip-path */
+}
+#carousel-container {
+    max-width: 1200px; width: 100%; overflow: hidden;
+    padding: 20px 0; cursor: grab;
+    user-select: none; -webkit-user-select: none;
+    margin: 40px auto 0; 
+}
+#carousel { display: flex; gap: 16px; }
+#carousel img {
+    width: 250px; height: 350px; border-radius: 16px;
+    object-fit: cover; flex-shrink: 0;
+    user-select: none; -webkit-user-drag: none;
+}
+#carousel-container.dragging { cursor: grabbing; }
+
+/* --- Benefits Section (Static Grid of Cards) --- */
+.benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+.benefit-card { 
+    background-color: #161B29; border-radius: 12px; padding: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-top: 4px solid var(--primary); box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    position: relative; overflow: hidden; color: var(--light);
+}
+.benefit-card::before {
+    content: ''; position: absolute; top: -15px; right: -15px; width: 50px; height: 50px;
+    background-color: var(--primary); border-radius: 50%; opacity: 0.07;
+}
+.benefit-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 12px 35px rgba(0, 169, 255, 0.15); }
+.benefit-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 18px; display: inline-block; }
+.benefit-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--light); font-weight: 700; }
+.benefit-card p { color: #a0aec0; font-size: 0.95rem; }
+
+/* --- CTA Section (Mid-Page with Image Cards) --- */
+.cta-section {
+    color: var(--light); padding: 80px 20px; /* Added horizontal padding */
+    text-align: center; position: relative; overflow: visible; /* Changed overflow to visible */
+    z-index: 1; margin: 50px 0; /* Adjusted margin */
+    min-height: auto; /* Removed fixed min-height */
+    /* clip-path: polygon(0 2%, 100% 0, 100% 90%, 0 100%); /* Consider removing or adjusting if it cuts off cards */
+}
+.cta-content { 
+    max-width: 1000px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; 
+    justify-content: center; gap: 30px; 
+    align-items: stretch; /* Changed from flex-start to stretch */
+}
+.cta-card.image-card {
+    border-radius: 12px; 
+    padding: 0; 
+    flex: 1 1 400px; /* Allow growing and shrinking, base 400px */
+    max-width: 450px; 
+    min-width: 300px; /* Minimum width before wrapping */
+    display: flex; flex-direction: column;
+    align-items: center; 
+    border: 1px solid rgba(var(--primary), 0.1); /* Subtle border */
+    overflow: hidden; /* Keep this to clip image to border-radius */
+}
+.cta-card.image-card img {
+    width: 100%;
+    height: auto; /* Let image height dictate card aspect ratio up to a point */
+    object-fit: cover; /* Was contain, try cover if you want it to fill. If cut-off is an issue, contain is better. */
+                         /* OR ensure your images have the desired aspect ratio */
+    display: block;
+    border-radius: 12px 12px 0 0; /* Round top corners if button is separate */
+}
+.cta-card.acesso .card-cta-button { /* Button Specific to "acesso" card */
+    margin: 0.1px auto; /* No negative margin if it's below the image */
+    margin-top: -15px;
+    position: relative;
+    /* The button will naturally sit below the image due to flex-direction: column */
+}
+/* Styles from previous .cta-section .cta-card (text based) are removed or repurposed */
+
+/* --- Guarantee Section --- */
+.guarantee { padding: 120px 0 90px; background-color: #10141ff5; position: relative; color: var(--light); z-index: 1; clip-path: polygon(0 5%, 100% 0, 100% 90%, 0 100%);}
+.guarantee-container { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+.guarantee-content { flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center; }
+.guarantee-image { min-width: 280px; text-align: center; display: flex; justify-content: center; align-items: center; }
+.guarantee-image img {
+    max-width: 120%; height: auto; max-height: 850px; object-fit: cover;
+    border-radius: 12px; transition: all 0.5s ease;
+}
+.guarantee-image:hover img { transform: scale(1.02); }
+.guarantee h2 { color: var(--light); margin-bottom: 20px; font-weight: 800; line-height: 1.2; }
+.guarantee h2 span { color: var(--primary); }
+.guarantee p { color: #b0bec5; margin-bottom: 25px;}
+.highlight {
+    background-color: rgba(0, 169, 255, 0.04); padding: 25px; border-radius: 12px;
+    margin: 30px 0;  position: relative; overflow: hidden;
+}
+
+.highlight-content { position: relative; z-index: 1; }
+.highlight h3 { color: var(--light); margin-bottom: 18px; font-size: 1.4rem; font-weight: 700; }
+.guarantee-list { list-style-type: none; margin: 25px 0; padding-left: 0; } 
+.guarantee-list li { margin-bottom: 12px; position: relative; padding-left: 35px; font-size: 1.05rem; color: #c8d6e0; }
+.guarantee-list li::before {
+    content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+    position: absolute; left: 0; top: 2px; color: var(--success-green); font-size: 1.2rem;
+}
+.checkmark-svg {
+    fill: var(--success-green); /* Cor do SVG */
+    width: 1em; /* Ajusta ao tamanho da fonte do pai */
+    height: 1em;
+    vertical-align: middle; /* Alinha melhor com o texto */
+  }
+  .fa-check-circle, .fa-check {
+    color: var(--success-green); /* Sua variável de cor verde */
+    /* margin-right: 8px; /* Espaçamento se necessário */
+}
+.fas.fa-check-circle, .fas.fa-check {
+    color: var(--success-green);
+}
+.highlight{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 600px;
+    width: 80%;
+    border-radius: 25px;
+}   
+@media (max-width: 1360px) {
+    .guarantee-image img {
+        max-width: 100%; height: auto; max-height: 650px; object-fit: cover;
+    }
+}
+/* --- Testimonials Section --- */
+.testimonials {
+    padding: 100px 0; background-color: #131722; position: relative;
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); color: var(--light); z-index: 1;
+}
+.testimonials::before {
+    content: ''; position: absolute; width: 100%; height: 100%;
+    background-image: url('/assets/images/grafico.png');
+    opacity: 0.1; z-index: 0; 
+    top: 5%;
+    right: -10%;
+}
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+.testimonial-card {
+    background-color: #1A202C; border-radius: 12px; padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); position: relative; transition: all 0.4s ease;
+}
+.testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
+.testimonial-card::before {
+    content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+    position: absolute; top: 15px; right: 15px; color: rgba(0, 169, 255, 0.08);
+    font-size: 3.5rem; z-index: 0;
+}
+.testimonial-content { position: relative; z-index: 1; }
+.testimonial-text { font-style: italic; margin-bottom: 20px; color: #b0bec5; font-size: 0.95rem; position: relative; padding-left: 18px; }
+.testimonial-text::before {
+    content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 3px;
+    background-color: var(--primary);
+}
+.testimonial-author { display: flex; align-items: center; }
+.author-avatar {
+    width: 50px; height: 50px; border-radius: 50%; overflow: hidden;
+    margin-right: 12px; border: 2px solid var(--primary); padding: 2px;
+}
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.author-info h4 { font-size: 1.05rem; color: var(--light); margin-bottom: 3px; font-weight: 700; }
+.author-info p { font-size: 0.85rem; color: #8a9aaf; }
+.rating { color: var(--highlight); margin-top: 4px; font-size: 0.9rem; }
+
+/* --- FAQ Section --- */
+.faq { padding: 100px 0; background-color: var(--dark); position: relative; color: var(--light); z-index: 1;}
+.faq::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(16, 20, 31, 0.08), rgba(0, 169, 255, 0.015));
+    opacity: 0.1; z-index: 0; 
+}
+.faq-content { position: relative; z-index: 1; }
+.accordion { max-width: 750px; margin: 0 auto; }
+.accordion-item {
+    margin-bottom: 12px; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); background-color: #1A202C;
+    border: 1px solid #283141; transition: all 0.3s ease;
+}
+.accordion-item:hover { border-color: var(--primary); }
+.accordion-header {
+    background-color: #1A202C; padding: 18px 22px; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; transition: all 0.3s ease; color: var(--light); font-size: 1.05rem;
+}
+.accordion-header:hover { color: var(--primary); }
+.accordion-header i { transition: all 0.3s ease; color: var(--primary); }
+.accordion-item.active .accordion-header { background-color: rgba(0, 169, 255, 0.08); }
+.accordion-item.active .accordion-header i { transform: rotate(180deg); }
+.accordion-content {
+    background-color: #1A202C; padding: 0 22px; max-height: 0;
+    overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.accordion-item.active .accordion-content { padding: 0 22px 22px; max-height: 450px; }
+.accordion-content p { color: #b0bec5; line-height: 1.6; font-size: 0.95rem; }
+
+/* --- Final CTA Section --- */
+.final-cta {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--light); padding: 90px 0; text-align: center;
+    position: relative; overflow: hidden;
+    clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 90%);
+    z-index: 1;
+}
+.hero-left-panel p{
+    color: #ccc; font-size: 0.9rem; margin-top: 50px; line-height: 1.5; height: 100px; text-align: center;
+}
+.final-cta::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center/cover;
+    opacity: 0.04; z-index: -1; 
+}
+.final-content { position: relative; z-index: 1; max-width: 750px; margin: 0 auto; }
+.final-cta h2 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; text-shadow: 0 3px 10px rgba(0,0,0,0.25); }
+.final-cta h2 span { color: var(--secondary); }
+.final-cta p { font-size: 1.15rem; max-width: 650px; margin: 0 auto 35px; opacity: 0.9; }
+
+.urgency-note {
+    margin-top: 35px; font-size: 1.05rem; display: flex; align-items: center; justify-content: center;
+    background-color: rgba(0,0,0,0.35); padding: 12px 22px; border-radius: 50px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+    backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.1);
+}
+.urgency-note i { margin-right: 8px; color: var(--secondary); font-size: 1.2rem; animation: pulseIcon 2s infinite; }
+
+/* --- Footer --- */
+footer {
+    background-color: #0B0E15; color: #8a9aaf; padding: 70px 0 25px;
+    text-align: center; position: relative; z-index: 1;
+}
+.footer-logo { font-size: 24px; font-weight: 800; color: var(--light); text-decoration: none; display: inline-block; margin-bottom: 25px; }
+.footer-logo span { color: var(--primary); }
+.footer-links { margin-bottom: 25px; }
+.footer-links a { color: #6b7a8c; margin: 0 12px; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+.footer-links a:hover { color: var(--primary); }
+.social-links { margin-bottom: 30px; }
+.social-links a {
+    display: inline-block; width: 40px; height: 40px; line-height: 40px; border-radius: 50%;
+    background-color: rgba(255,255,255,0.04); color: var(--light); margin: 0 8px;
+    font-size: 1.1rem; transition: all 0.3s ease;
+}
+.social-links a:hover { background-color: var(--primary); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0, 169, 255, 0.25); }
+.copyright { margin-top: 25px; font-size: 0.75rem; opacity: 0.7; }
+
+/* --- Animations & Keyframes --- */
+@keyframes GradientBackground { 
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+@keyframes float { 
+    0%, 100% { transform: translateY(0px); opacity: 0.3; }
+    50% { transform: translateY(-40px); opacity: 1; }
+}
+@keyframes pulseCoin { 
+    0%, 100% { transform: scale(1) translateY(0px); opacity: 0.9; }
+    50% { transform: scale(1.08) translateY(-10px); opacity: 1; }
+}
+@keyframes twinkle { 
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+@keyframes pulseButton { 
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+@keyframes pulseIcon { 
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.animate-fade { opacity: 0; }
+.floating { animation: float 6s ease-in-out infinite; }
+
+
+/* --- Accessibility Focus Styles --- */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(247, 181, 0, 0.3);
+}
+a:focus:not(:focus-visible), button:focus:not(:focus-visible), 
+input:focus:not(:focus-visible), select:focus:not(:focus-visible), 
+textarea:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, 
+select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(247, 181, 0, 0.3);
+}
+
+/* Regras principais */
+.highlight-price {
+    font-size: 5rem;
+}
+.highlight-benefits {
+    font-size: 1.5rem;
+}
+.highlight-cta-btn {
+    width: 400px;
+    align-self: center;
+    margin: 20px;
+}
+.highlight-cta-btn span {
+    color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .highlight-price { font-size: 3rem; }
+    .highlight-benefits { font-size: 1.5rem; }
+    .highlight-cta-btn { width: 90%; font-size: 1.1rem; }
+}
+@media (max-width: 768px) {
+    .highlight-price { font-size: 1.5rem; }
+    .highlight-benefits { font-size: 1rem; }
+    .highlight-cta-btn { width: 100%; font-size: 1rem; }
+    .highlight{
+        height: 80%;
+    }
+}
+@media (max-width: 576px) {
+    .highlight-price { font-size: 1.1rem; }
+    .highlight-benefits { font-size: 0.85rem; }
+    .highlight-cta-btn { font-size: 0.95rem; }
+}
+@media (max-width: 400px) {
+    .highlight-price { font-size: 0.95rem; }
+    .highlight-benefits { font-size: 0.75rem; }
+    .highlight-cta-btn { font-size: 0.85rem; }
+}
+
+/* --- Media Queries (Consolidated & Hero Adjustments Prioritized) --- */
+@media (max-width: 1200px) { 
+    .container, .hero-content-wrapper { max-width: 95%; } 
+}
+
+@media (max-width: 1013px) { 
+    .logo{ font-size: 18px; }
+    .cta-button{ font-size: 10px; text-align: center; padding: 5px; }
+
+    .hero-left-panel{ width: 300px; } 
+    .hero-left-panel::before{ left: 28%; width: 130px; height: 130px; top: -3%;} 
+
+    .hero-person-image{ width: 480px; transform: translateX(-50%); } 
+    
+    #bet-card-1 { top: 10%; right: 5%; width: 180px; }
+    #bet-card-2 { bottom: 5%; right: 2%; width: 220px; }
+    #bet-card-3 { top: 30%; left: 5%; width: 200px; }
+
+    #coin-1 { width: 140px; height: 140px; bottom: 5%; left: 15%;}
+    #coin-3 { width: 130px; height: 130px; top: 35%; right: 5%;}
+    #coin-5 { width: 130px; height: 130px; top: 20%; right: 50%;} 
+}
+
+
+@media (max-width: 970px) { 
+    #bet-card-1 { right: 7%; }
+}
+
+@media (max-width: 908px) { 
+    .hero { min-height: auto; padding: 90px 0 30px; text-align: center; }
+    .hero-content-wrapper { flex-direction: column; align-items: center; }
+    .hero-left-panel {
+        width: 90%; max-width: 550px;
+        height: 500px; padding: 50px 15px 25px; 
+        margin-bottom: 30px; border-radius: 12px;
+    }
+    .hero-left-panel::before {
+        left: 50%; transform: translateX(-50%); top: -20px; 
+        width: 100px; height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-left-panel p{
+        font-size: 0.9rem;
+        position: relative;
+        width: 50%;
+        left: 25%;
+    margin-top: -50px;
+    }
+    
+    .pro-code-logo-hero h1 { font-size: 2.2rem; }
+    .pro-code-logo-hero .line2 { margin-left: 0; }
+    .pro-code-subtext-hero { justify-content: center; }
+    .hero-cta-button { width: 85%; margin-top: 20px; }
+
+    .grafico-fundo { top: 0%; left: 0%;} 
+
+    .hero-right-visuals { width: 100%; height: auto; min-height: 400px; position: relative; } 
+    .hero-person-image{
+        width: 80%; max-width: 550px; 
+        height: auto; position: relative; display: block; 
+        margin: 20px auto 15px; 
+        left: 5%;
+        transform: translateX(0);
+    }
+    .hcta{
+        width: 40%;
+        margin-top: -10px;
+    }
+    #bet-card-1 { width: 300px; top: 5%; left: 56.5%; right: auto; }
+    #bet-card-2 { width: 300px; bottom: 2%; right: 10%; left: auto; }
+    #bet-card-3 { width: 300px; top: 25%; left: 10%; right: auto; }
+    #coin-1 { width: 150px; height: 150px; bottom: 15%; left: 35%;}
+    #coin-3 { width: 150px; height: 150px; top: 15%; right: 50%; }
+    #coin-5 { width: 150px; height: 150px; top: 40%; right: 10%; } 
+    .particles-container{ z-index: 0; } 
+}
+
+@media (max-width: 768px) { 
+    .container { padding: 0 10px; } header .container { padding: 0 10px; }
+    #coin-1 { width: 130px; height: 130px; bottom: 15%; left: 25%;}
+    #coin-3 { width: 130px; height: 130px; top: 15%; right: 50%; }
+    #coin-5 { width: 130px; height: 130px; top: 40%; right: 5%; }   
+    #bet-card-1 { width: 250px; top: 5%; left: 56.5%; right: auto; }
+    #bet-card-2 { width: 250px; bottom: 2%; right: 10%; left: auto; }
+    #bet-card-3 { width: 250px; top: 25%; left: 10%; right: auto; }
+    .section-title h2 { font-size: 1.6rem; }
+    .section-title h2::after { width: 50%; height: 5px; transform: translateX(25%) rotate(-2deg); }
+    .section-title p { font-size: 0.95rem; max-width: 90%; }
+    .final-cta h2, .cta-section h2 { font-size: 1.8rem; } 
+    .cta-section { margin: 30px 0 -30px; padding: 70px 0; }
+    .cta-card.image-card { max-width: 90%; /* Allow cards to be wider when stacked */ }
+    .cta-card.acesso .card-cta-button { margin-top: 20px; }
+
+    .guarantee { padding: 100px 0 60px; }
+    .testimonials { padding: 80px 0; }
+    .faq { padding: 80px 0; }
+    .final-cta { padding: 80px 0; }
+    .cta-card.acesso .card-cta-button { /* Button Specific to "acesso" card */
+        margin: 0.1px auto; /* No negative margin if it's below the image */
+        margin-top: -15px;
+        position: relative;
+        /* The button will naturally sit below the image due to flex-direction: column */
+    }
+    .highlight {
+        padding: 18px;
+        width: 98%;
+        border-radius: 18px;
+    }
+    .highlight-price {
+        font-size: 1.5rem;
+    }
+    .highlight-benefits {
+        font-size: 0.95rem;
+    }
+    .highlight-cta-btn {
+        width: 100%;
+        font-size: 1rem;
+        margin: 12px 0 0 0;
+    }
+}
+@media (max-width: 618px) {
+    #bet-card-1 { width: 200px; top: 5%; left: 56.5%; right: auto; }
+    #bet-card-2 { width: 200px; bottom: 2%; right: 10%; left: auto; }
+    #bet-card-3 { width: 200px; top: 25%; left: 10%; right: auto; }
+    #coin-1 { width: 90px; height: 90px; bottom: 15%; left: 25%;}
+    #coin-3 { width: 90px; height: 90px; top: 15%; right: 50%; }
+    #coin-5 { width: 90px; height: 90px; top: 40%; right: 5%; }   
+
+}
+
+@media (max-width: 576px) { 
+    body { font-size: 14px; }
+    header { padding: 10px 0; }
+    .logo { font-size: 16px; } .logo i { display: none; }
+    .cta-button { padding: 8px 15px; font-size: 11px; } 
+
+    .hero { padding: 80px 0 30px; }
+    .hero-left-panel { padding: 0; margin: 0; }
+    .hero-left-panel::before { width: 150px; height: 150px; top: -25px; }
+    .hero-left-panel p{
+        font-size: 0.9rem;
+        position: relative;
+        width: 50%;
+        left: 25%;
+    margin-top: 0px;
+    }
+    .pro-code-logo-hero h1 { font-size: 1.8rem; }
+    .hero-cta-button { font-size: 0.9rem; padding: 10px 8px; width: 55%; }
+    .hero-right-visuals { min-height: 350px; } 
+    .hero-person-image { max-width: 280px; width: 90%; height: 90%; margin: 0 auto;  } 
+    .hero-bet-card { transform: scale(0.6); }
+    #bet-card-1 { width: 200px; top: 5%; left: 63%; }
+    #bet-card-2 { width: 200px; bottom: 8%; right: -5%; }
+    #bet-card-3 { width: 200px; top: 25%; left: 0%; right: auto; }
+    #coin-1 { width: 120px; height: 120px; left: 10%; bottom: 15%; }
+    #coin-3 { width: 120px; height: 120px; top: 35%; right: -5%; }
+    #coin-5 { width: 120px; height: 120px; top: 15%; right: 50%; }
+    #bet-card-1:hover, #bet-card-2:hover, #bet-card-3:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .hero-person-image { 
+        max-width: 550px;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .section-title h2 { font-size: 1.5rem; }
+    .section-title p, .cta-section p, .final-cta p { font-size: 0.9rem; }
+    #carousel-container { width: 95%; padding: 10px 0; }
+    #carousel img { width: 200px; height: 280px; border-radius: 12px; gap: 10px;} 
+    .benefit-card { padding: 15px; }
+    .benefit-card i { font-size: 1.8rem; margin-bottom: 12px; }
+    .benefit-card h3 { font-size: 1.1rem; } .benefit-card p { font-size: 0.85rem; }
+    .cta-section { padding: 60px 0; margin: 20px 0 -20px;} .cta-section h2 { font-size: 1.5rem; }
+    /* .cta-features { flex-direction: column; align-items: center; gap: 8px; } /* This was for old text based CTA features */
+    /* .cta-feature { padding: 6px 12px; font-size: 0.75rem; } */
+    .cta-button-large { padding: 14px 30px; font-size: 0.9rem; width: 90%; }
+    .cta-card.image-card { max-width: 90%;}
+    .cta-card.acesso .card-cta-button {
+        width: calc(100% - 30px);
+        font-size: 1rem;
+        padding: 12px 15px;
+        margin-top: 20px; /* No overlap */
+    }
+
+    .guarantee { padding: 80px 0 50px; } .guarantee h2 { font-size: 1.5rem; }
+    .guarantee p { font-size: 0.9rem; } .highlight { padding: 10px; }
+    .highlight h3 { font-size: 1.2rem; } .guarantee-list li { font-size: 0.9rem; padding-left: 25px; }
+    .guarantee-list li::before { font-size: 1rem; }
+    .testimonials { padding: 60px 0; } .testimonial-card { padding: 20px; }
+    .testimonial-text { font-size: 0.9rem; } .author-avatar { width: 45px; height: 45px; }
+    .author-info h4 { font-size: 1rem; } .author-info p { font-size: 0.8rem; }
+    .faq { padding: 60px 0; } .accordion-header { padding: 12px 15px; font-size: 0.9rem; }
+    .accordion-content { padding: 0 15px; }
+    .accordion-item.active .accordion-content { padding: 0 15px 15px; } .accordion-content p { font-size: 0.85rem; }
+    .final-cta { padding: 70px 0; } .final-cta h2 { font-size: 1.8rem; }
+    .final-cta p { font-size: 0.95rem; } .final-button { padding: 15px 35px; font-size: 1rem; width: 90%; }
+    .urgency-note { font-size: 0.9rem; padding: 10px 15px; max-width: 90%; } .urgency-note i { font-size: 1rem; }
+    footer { padding: 40px 0 15px; } .footer-logo { font-size: 22px; margin-bottom: 20px; }
+    .social-links a { width: 35px; height: 35px; line-height: 35px; font-size: 1rem; }
+    .copyright { font-size: 0.7rem; margin-top: 25px; }
+    .cta-card.acesso .card-cta-button { /* Button Specific to "acesso" card */
+        margin: 0.1px auto; /* No negative margin if it's below the image */
+        margin-top: -15px;
+        position: relative;
+        /* The button will naturally sit below the image due to flex-direction: column */
+    }
+    .highlight {
+        padding: 10px;
+        width: 100%;
+        border-radius: 12px;
+        min-width: unset;
+    }
+    .highlight-price {
+        font-size: 1.1rem;
+    }
+    .highlight-benefits {
+        font-size: 0.85rem;
+    }
+    .highlight-cta-btn {
+        width: 100%;
+        font-size: 0.95rem;
+        margin: 10px 0 0 0;
+        min-width: 120px;
+    }
+}
+@media (max-width: 461px) {
+    #bet-card-1 { width: 200px; top: 5%; left: 50%; }
+    #bet-card-2 { width: 200px; bottom: 5%; right: 2%; }
+    #bet-card-3 { width: 200px; top: 30%; left: 5%; }
+
+    #coin-1 { width: 80px; height: 80px; bottom: 5%; left: 15%; }
+    #coin-3 { width: 70px; height: 70px; top: 40%; right: 1%; }
+    #coin-5 { width: 75px; height: 75px; top: 20%; right: 70%; }
+
+    .hero-person-image { width: 510px; left: -20%; }
+}
+@media (max-width: 400px) { 
+    .hero-left-panel::before { width: 130px; height: 130px; top: -15px; }
+    .hero-left-panel p{
+        font-size: 0.9rem;
+        position: relative;
+        width: 80%;
+        left: 12%;
+    margin-top: 0px;
+    }
+
+    .pro-code-logo-hero h1 { font-size: 1.6rem; }
+    .hero-cta-button { width: 85%; font-size: 0.85rem; }
+    .hero-right-visuals { min-height: 300px; } 
+    .hero-person-image { max-width: 400px; left: -10%; } 
+    .hero-bet-card { transform: scale(0.5); }
+    #bet-card-1 { width: 180px; top: 1%; left: 52%;} 
+    #bet-card-2 { width: 180px; bottom: 1%; right: 1%;}
+    #bet-card-3 { width: 180px; top: 35%; left: 0%;}
+    #coin-1 { width: 70px; height: 70px; bottom: 0.5%;} 
+    #coin-3 { width: 60px; height: 90px; top: 30%; right: 1%;}
+
+    .section-title h2 { font-size: 1.3rem; }
+    .final-cta h2, .cta-section h2 { font-size: 1.4rem; }
+    #carousel img { width: 160px; height: 220px; }
+    .highlight {
+        padding: 5px;
+        border-radius: 8px;
+    }
+    .highlight-price {
+        font-size: 0.95rem;
+    }
+    .highlight-benefits {
+        font-size: 0.75rem;
+    }
+    .highlight-cta-btn {
+        font-size: 0.85rem;
+        padding: 8px 0;
+    }
+}
+@media (max-width: 370px) {
+    #bet-card-1 { width: 120px; top: 1%; left: 52%;} 
+    #bet-card-2 { width: 120px; bottom: 1%; right: 1%;}
+    #bet-card-3 { width: 120px; top: 35%; left: 0%;}
+    #coin-1 { width: 60px; height: 60px; bottom: 0.5%;} 
+    #coin-3 { width: 50px; height: 80px; top: 30%; right: 1%;}  
+    .hero-person-image { width: 250px; left: auto; }
+}
+@media (max-height: 500px){
+    .hero { min-height: 100vh; padding: 80px 0 40px; }
+    .hero-content-wrapper { flex-direction: row; align-items: center; }
+    .hero-left-panel { width: 45%; height: auto; margin-bottom: 0; }
+    .hero-right-visuals { height: calc(100vh - 120px); max-height: 380px; } 
+    .hero-person-image { max-width: 280px; }
+    .highlight-price {
+        font-size: 1.5rem;
+    }
+    .highlight-benefits {
+        font-size: 1rem ;
+    }
+}
+
+@media (max-width: 578px) {
+    .hero-bet-card {
+        transform: none !important;
+    }
+    #bet-card-1:hover, #bet-card-2:hover, #bet-card-3:hover {
+        transform: none !important;
+        box-shadow: none;
+    }
+}

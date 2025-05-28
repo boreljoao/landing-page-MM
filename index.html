@@ -1,507 +1,514 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Métodos Validados - Comunidade Premium</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Método Zero Risco - PRO CODE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Partículas flutuantes -->
-    <div class="floating-particles" id="particles"></div>
+<body> 
+    <header id="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-rocket"></i> Métodos<span>ZeroRisco</span>
+            </a>
+            <a href="#final-cta" class="cta-button" id="header-button">ENTRAR AGORA</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="grafico-fundo"></div>
+        <div class="particles-container" id="particles-js"></div>
+        <div class="hero-content-wrapper container">
+            <div class="hero-left-panel">
+                <div>
+                    <div class="pro-code-logo-hero">
+                        <div class="logo-pro-code"></div>
+                       
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ut eius itaque inventore! Hic quam consequuntur, nam officiis quod est explicabo quo ipsum. Impedit officiis mollitia iusto molestias tempora lorem
+                    </p>
+                </div>
+                <button class="hero-cta-button hcta" id="hero-main-cta">
+                    <span style="color: #fff;">GARANTA SUA</span> VAGA!
+                </button>
+            </div>
+
+            <div class="hero-right-visuals">
+                <img src="aposta1.png" alt="Detalhes da Aposta 1" class="hero-bet-card" id="bet-card-1" onerror="this.onerror=null;this.src='/assets/images/aposta1.png';">
+                <img src="foto.jpg" alt="Foto da Pessoa" class="hero-person-image" onerror="this.onerror=null;this.src='/assets/images/foto.png';">
+                
+                <img src="aposta2.png" alt="Detalhes da Aposta 2" class="hero-bet-card" id="bet-card-2" onerror="this.onerror=null;this.src='/assets/images/aposta2.png';">
+                <img src="aposta3.png" alt="Detalhes da Aposta 3" class="hero-bet-card" id="bet-card-3" onerror="this.onerror=null;this.src='/assets/images/aposta3.png';">
+
+                <img src="moeda1.png" alt="Moeda Dourada Grande" class="hero-coin" id="coin-1" onerror="this.onerror=null;this.src='/assets/images/moeda.png';">
+                
+                <img src="moeda4.png" alt="Moeda Dourada Pequena" class="hero-coin" id="coin-3" onerror="this.onerror=null;this.src='/assets/images/moeda4.png';">
+                <img src="moeda5.png" alt="Moeda Dourada Pequena" class="hero-coin" id="coin-5" onerror="this.onerror=null;this.src='/assets/images/moeda5.png';">
+            </div>
+        </div>
+    </section>
     
-    <!-- Ícones flutuantes -->
-    <div class="floating-icons">
-        <i class="fas fa-chart-line icon-1"></i>
-        <i class="fas fa-coins icon-2"></i>
-        <i class="fas fa-trophy icon-3"></i>
-        <i class="fas fa-rocket icon-4"></i>
-    </div>
-
-    <!-- Notificações de atividade -->
-    <div id="activity-notifications"></div>
-
-    <!-- Botão flutuante de CTA -->
-    <div class="floating-cta" id="floating-cta">
-        <div class="cta-pulse-wrapper">
-            <button class="cta-button-small" onclick="scrollToCheckout()">
-                <span class="font-bold">GARANTIR VAGA</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- SEÇÃO 1 - HERO -->
-    <section class="hero-section">
+    <section class="results">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">VOCÊ NÃO PRECISA MAIS <span class="highlight-text">CONTAR COM A SORTE</span></h1>
-                <p class="hero-subtitle">Aprenda métodos testados e validados por quem <span class="highlight-text">vive disso todos os dias</span>.</p>
-                <p class="hero-description">
-                    Entre agora para a comunidade mais unida e que mais cresce no meio dos métodos <span class="badge-accent">0 risco</span> e <span class="badge-accent">baixo investimento</span>.
-                </p>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-bullseye feature-icon"></i>
-                        <h3>Delay & Super Odds</h3>
-                        <p>Técnicas avançadas para maximizar seus resultados</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-money-bill-wave feature-icon"></i>
-                        <h3>Cashout & Rollover</h3>
-                        <p>Estratégias inteligentes de saída e gestão</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-chart-area feature-icon"></i>
-                        <h3>Gestão & Estratégias Reais</h3>
-                        <p>Métodos comprovados para crescimento sustentável</p>
-                    </div>
-                </div>
-
-                <div class="scarcity-badge">
-                    🔒 Acesso Imediato – Vagas Limitadas
-                </div>
-
-                <div style="display: block; max-width: 200px; margin: auto;" class="urgency-timer" id="countdown-timer">
-                    <div class="timer-label">⏰ Oferta expira em:</div>
-                    <div class="timer-display">
-                        <span id="hours">23</span>:<span id="minutes">59</span>:<span id="seconds">59</span>
-                    </div>
-                </div>
-
-                <div class="cta-container">
-                    <a href="#checkout" class="cta-button pulse-button" onclick="scrollToCheckout()">
-                        👉 QUERO LUCRAR AGORA
-                    </a>
-                </div>
-                
-                <!-- Indicador de rolagem -->
-                <div style="margin: auto;" class="scroll-indicator">
-                    <p>Descubra mais</p>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
+            <div class="section-title">
+                <h2 class="animate-fade">TUDO O QUE VOCÊ VAI APRENDER A FAZER DINHEIRO ESTÁ AQUI</h2>
+                <p class="animate-fade delay-1">Métodos comprovados para lucrar com apostas esportivas, com baixo risco e alto lucro.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 2 - AUTORIDADE -->
-    <section class="section" id="authority">
-        <div class="container">
-            <div class="section-header">
-                <div class="badge-container">
-                    <div class="badge-premium">
-                        <i class="fas fa-chart-line"></i>
-                        RESULTADOS COMPROVADOS
-                    </div>
-                </div>
-                <h2 class="section-title">AQUI VOCÊ APRENDE A FAZER DINHEIRO <span class="highlight-underline">COM MÉTODOS QUE FUNCIONAM</span></h2>
-                
-                <div class="section-intro">
-                    <p class="text-strike">Esquece esse papo de grupo VIP que só te manda entrada aleatória.</p>
-                    <p class="text-highlight">Na nossa comunidade, você aprende de verdade:</p>
-                </div>
-            </div>
-
-            <ul class="benefits-list">
-                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Como</span>&ThinSpace; aplicar o Delay sem riscos</li>
-                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Como</span>&ThinSpace; identificar Super Odds com valor real</li>
-                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Técnicas</span>&ThinSpace; de Cashout antecipado com lucro</li>
-                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Rollover</span>&ThinSpace; inteligente e estratégias de extração</li>
-                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Como</span>&ThinSpace; gerenciar banca sem emoção</li>
-                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Sem</span>&ThinSpace; entradas de viciados, apenas métodos</li>
-                <li><i class="fas fa-check-circle"></i> <span class="benefit-highlight">Mentalidade</span>&ThinSpace; de longo prazo para viver de métodos</li>
-            </ul>
-
-            <div class="stats-section">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number" id="stat-success">97%</span>
-                        <span class="stat-label">Taxa de Sucesso</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="stat-members">5000+</span>
-                        <span class="stat-label">Membros Ativos</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="stat-profit">R$ 200K+</span>
-                        <span class="stat-label">Lucro Gerado</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-box">
-                <p class="testimonial-text">
-                    Tudo explicado no <span class="highlight-text">passo a passo</span>, com suporte e interação diária entre os membros.
-                </p>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <span>4.9/5 por mais de 300 alunos</span>
-                </div>
-            </div>
-
-            <div style="margin: auto; display: flex;
-            align-items: center; flex-direction: column;" class="cta-container">
-                <a href="#checkout" class="cta-button-secondary" onclick="scrollToCheckout()">
-                    QUERO APRENDER AGORA
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <p class="cta-note">⚡ Acesso imediato após a compra</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 3 - CHAMADA PARA AÇÃO -->
-    <section class="section" id="call-to-action">
-        <div class="container">
-            <div class="section-header">
-                <div class="badge-container">
-                    <div class="badge-premium green">
-                        <i class="fas fa-users"></i>
-                        COMUNIDADE EXCLUSIVA
-                    </div>
-                </div>
-                <h2 class="section-title">FAÇA PARTE DA FAMÍLIA E <span class="highlight-underline">MUDE SUA REALIDADE FINANCEIRA</span></h2>
-                <p class="section-subtitle">Nosso foco é <span class="highlight-text">crescer juntos</span>. Aqui ninguém é individualista.</p>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Ambiente 100% colaborativo</h3>
-                    <p>Compartilhe experiências, tire dúvidas e cresça junto com outros membros em um ambiente focado em resultados.</p>
-                    <div class="benefit-tag">
-                        <i class="fas fa-star"></i>
-                        <span>Benefício exclusivo</span>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Acesso a conteúdos exclusivos</h3>
-                    <p>Materiais detalhados e explicativos que vão te ensinar desde o básico até técnicas avançadas de operação.</p>
-                    <div class="benefit-tag">
-                        <i class="fas fa-star"></i>
-                        <span>Benefício exclusivo</span>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3>Estratégias atualizadas</h3>
-                    <p>Receba estratégias atualizadas diretamente de quem vive disso, testadas e comprovadas no dia a dia.</p>
-                    <div class="benefit-tag">
-                        <i class="fas fa-star"></i>
-                        <span>Benefício exclusivo</span>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Resultados reais todos os dias</h3>
-                    <p>Acompanhe resultados reais e consistentes, com transparência total sobre ganhos e estratégias utilizadas.</p>
-                    <div class="benefit-tag">
-                        <i class="fas fa-star"></i>
-                        <span>Benefício exclusivo</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-box large">
-                <p class="testimonial-text">
-                    Se você quer <span class="highlight-text">aprender</span>, <span class="highlight-text">crescer</span> e <span class="highlight-text">ganhar dinheiro</span> com métodos sérios — seja bem-vindo à nossa comunidade.
-                </p>
-            </div>
-
-            <div class="activity-indicator">
-                <div class="pulse-dot"></div>
-                <p>Pessoas entrando agora mesmo...</p>
-            </div>
-
-            <div style="display: flex; align-items: center; flex-direction: column;" class="cta-container">
-                <a href="#checkout" class="cta-button-primary" onclick="scrollToCheckout()">
-                    QUERO ENTRAR AGORA
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 4 - GARANTIA -->
-    <section class="section" id="guarantee">
-        <div class="container">
-            <div class="countdown-banner">
-                <div class="countdown-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="countdown-text">
-                    <span class="countdown-label">OFERTA POR TEMPO LIMITADO:</span>
-                    <span class="countdown-timer" id="countdown-small"></span>
-                </div>
-            </div>
-
-            <div class="section-header">
-                <div class="badge-container">
-                    <div class="badge-premium yellow">
-                        <i class="fas fa-shield-alt"></i>
-                        GARANTIA TOTAL
-                    </div>
-                </div>
-                <h2 class="section-title">ESTÁ CANSADO DE SER <span class="highlight-underline">ILUDIDO COM PROMESSAS?</span></h2>
-                
-                <div class="section-intro">
-                    <p>A diferença aqui é simples:</p>
-                    <p class="text-highlight">A gente mostra o caminho, ensina a pescar e anda junto.</p>
-                    <p class="badge-accent large">Você não depende de ninguém para lucrar — aprende a fazer por conta própria.</p>
-                </div>
-            </div>
-
-            <div class="benefits-row">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>+Resultados reais</h3>
-                    <p>Acompanhe diariamente os resultados obtidos pelos membros da comunidade e pelos nossos especialistas.</p>
-                    <div class="value-tag">VALOR INESTIMÁVEL</div>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>+Aprendizado</h3>
-                    <p>Conteúdo estruturado para que você aprenda de verdade e consiga aplicar os métodos por conta própria.</p>
-                    <div class="value-tag">VALOR INESTIMÁVEL</div>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>+Liberdade</h3>
-                    <p>Desenvolva autonomia para aplicar os métodos quando e onde quiser, sem depender de "gurus".</p>
-                    <div class="value-tag">VALOR INESTIMÁVEL</div>
-                </div>
-            </div>
-
-            <div class="guarantee-box">
-                <div class="guarantee-content">
-                    <div class="guarantee-info">
-                        <div class="guarantee-header">
-                            <div class="guarantee-line"></div>
-                            <p class="guarantee-label">VAGAS LIMITADAS</p>
-                        </div>
-                        <p class="guarantee-item"><span class="guarantee-marker">📌</span> Vagas controladas para manter a qualidade do grupo.</p>
-                        <p class="guarantee-item"><span class="guarantee-marker">📌</span> Prioridade para quem quer realmente se dedicar.</p>
-                        
-                        <div class="vacancy-counter">
-                            <div class="vacancy-dot"></div>
-                            <span>Apenas <strong>7</strong> vagas restantes</span>
-                        </div>
-                    </div>
-                    
-                    <div class="guarantee-cta">
-                        <div class="cta-glow">
-                            <a href="#checkout" class="cta-button-final" onclick="scrollToCheckout()">
-                                QUERO GARANTIR MINHA VAGA AGORA
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        
-                        <div class="security-badges">
-                            <div class="security-badge">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="security-badge">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <span>Pagamento 100% seguro</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="final-warning">
-                <div class="warning-content">
-                    <p><span class="text-danger">Não perca tempo!</span> As vagas são limitadas e podem encerrar a qualquer momento.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO DE CHECKOUT -->
-    <section class="section checkout-section" id="checkout">
-        <div class="container">
-            <h2 class="checkout-title">COMPLETE SEU CADASTRO</h2>
-            <p class="checkout-subtitle">Você está a um passo de transformar sua realidade financeira</p>
             
-            <div class="checkout-container">
-                <div class="checkout-product">
-                    <div class="product-details">
-                        <h3>Comunidade Métodos Validados</h3>
-                        <div class="product-features">
-                            <p><i class="fas fa-check"></i> Acesso vitalício à comunidade</p>
-                            <p><i class="fas fa-check"></i> Todas as estratégias e métodos</p>
-                            <p><i class="fas fa-check"></i> Suporte exclusivo 24/7</p>
-                            <p><i class="fas fa-check"></i> Atualizações constantes</p>
-                        </div>
-                        <div class="product-price">
-                            <div class="price-original">De <span>R$ 997,00</span> por</div>
-                            <div class="price-current">R$ 497,00</div>
-                            <div class="price-installment">ou 12x de R$ 49,70</div>
-                        </div>
-                    </div>
-                    <div class="product-timer">
-                        <p>Oferta expira em:</p>
-                        <div class="checkout-timer" id="checkout-timer"></div>
-                    </div>
-                </div>
+            <div class="carousel-container" id="carousel-container">
+                <div class="carousel" id="carousel">
+                    <img draggable="false" src="/assets/images/cardroll1.png" alt="Card 1" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+1';">
+                    <img draggable="false" src="/assets/images/cardroll2.png" alt="Card 2" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+2';">
+                    <img draggable="false" src="/assets/images/cardroll3.png" alt="Card 3" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+3';">
+                    <img draggable="false" src="/assets/images/cardroll4.png" alt="Card 4" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+4';">
+                    <img draggable="false" src="/assets/images/cardroll5.png" alt="Card 5" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+5';">
+                    <img draggable="false" src="/assets/images/cardroll6.png" alt="Card 6" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+6';">
+                    <img draggable="false" src="/assets/images/cardroll17.png" alt="Card 7" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+7';">
                 
-                <div class="checkout-form">
-                    <form id="payment-form">
-                        <div class="form-section">
-                            <h4>Informações Pessoais</h4>
-                            <div class="form-group">
-                                <label for="name">Nome Completo</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefone</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-section">
-                            <h4>Informações de Pagamento</h4>
-                            <div class="payment-methods">
-                                <div class="payment-method active" data-method="credit">
-                                    <i class="fas fa-credit-card"></i>
-                                    <span>Cartão de Crédito</span>
-                                </div>
-                                <div class="payment-method" data-method="pix">
-                                    <i class="fas fa-qrcode"></i>
-                                    <span>PIX</span>
-                                </div>
-                                <div class="payment-method" data-method="boleto">
-                                    <i class="fas fa-barcode"></i>
-                                    <span>Boleto</span>
-                                </div>
-                            </div>
-                            
-                            <div id="credit-payment" class="payment-form active">
-                                <div class="form-group">
-                                    <label for="card-number">Número do Cartão</label>
-                                    <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000">
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="card-expiry">Validade</label>
-                                        <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="card-cvc">CVV</label>
-                                        <input type="text" id="card-cvc" name="card-cvc" placeholder="123">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="card-name">Nome no Cartão</label>
-                                    <input type="text" id="card-name" name="card-name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="installments">Parcelas</label>
-                                    <select id="installments" name="installments">
-                                        <option value="1">À vista - R$ 497,00</option>
-                                        <option value="2">2x de R$ 248,50</option>
-                                        <option value="3">3x de R$ 165,67</option>
-                                        <option value="4">4x de R$ 124,25</option>
-                                        <option value="5">5x de R$ 99,40</option>
-                                        <option value="6">6x de R$ 82,83</option>
-                                        <option value="12">12x de R$ 49,70</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div id="pix-payment" class="payment-form">
-                                <div class="pix-container">
-                                    <div class="pix-qrcode">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QR Code PIX">
-                                    </div>
-                                    <div class="pix-instructions">
-                                        <p>1. Abra o app do seu banco</p>
-                                        <p>2. Escolha pagar com PIX</p>
-                                        <p>3. Escaneie o QR code</p>
-                                        <p>4. Confirme o pagamento</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div id="boleto-payment" class="payment-form">
-                                <div class="boleto-container">
-                                    <p>Ao clicar em "Gerar Boleto", você receberá o boleto por e-mail para pagamento.</p>
-                                    <p>O acesso será liberado em até 3 dias úteis após a compensação.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-action">
-                            <button type="submit" class="checkout-button" id="checkout-button">
-                                GARANTIR MINHA VAGA AGORA
-                            </button>
-                            <div class="security-info">
-                                <i class="fas fa-lock"></i>
-                                <span>Seus dados estão protegidos por criptografia de ponta a ponta</span>
-                            </div>
-                        </div>
-                    </form>
+                    <img draggable="false" src="/assets/images/cardroll1.png" alt="Card 1 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+1';">
+                    <img draggable="false" src="/assets/images/cardroll2.png" alt="Card 2 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+2';">
+                    <img draggable="false" src="/assets/images/cardroll3.png" alt="Card 3 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+3';">
+                    <img draggable="false" src="/assets/images/cardroll4.png" alt="Card 4 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+4';">
+                    <img draggable="false" src="/assets/images/cardroll5.png" alt="Card 5 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+5';">
+                    <img draggable="false" src="/assets/images/cardroll6.png" alt="Card 6 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+6';">
+                    <img draggable="false" src="/assets/images/cardroll17.png" alt="Card 7 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+7';">
                 </div>
             </div>
         </div>
     </section>
-
-    <footer class="footer">
+    
+    <section class="cta-section">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; <span id="current-year"></span> Métodos Validados. Todos os direitos reservados.</p>
-                <div class="footer-links">
-                    <a href="#">Termos de Uso</a>
-                    <a href="#">Política de Privacidade</a>
+            <div class="cta-content">
+                <div class="cta-card image-card acesso">
+                    <img src="/assets/images/cardAcesso.png" alt="Detalhes do Acesso PRO CODE" onerror="this.onerror=null;this.src='https://placehold.co/450x600/0E111A/FFFFFF?text=Card+Acesso';">
+                    <a href="#final-cta" class="cta-button-large card-cta-button animate-fade delay-4">GARANTIR MEU ACESSO</a> 
                 </div>
+
+                <div class="cta-card image-card garantia">
+                    <img src="/assets/images/cardGarantia.png" alt="Garantia de 7 Dias PRO CODE" onerror="this.onerror=null;this.src='https://placehold.co/450x600/0E111A/FFFFFF?text=Card+Garantia';">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="particles-container" id="particles"></div>
+    <section class="guarantee">
+        <div class="container guarantee-container">
+            <div class="guarantee-content animate-fade">
+                <div class="section-title">
+                    <h2 style="font-size: 4rem;" class="animate-fade">PREÇO</h2>
+                </div>
+                
+                
+                <div class="highlight">
+                    <div class="highlight-left">
+                        <h2 class="highlight-price">R$ 100,00</h2>
+                        <p class="highlight-benefits">O que você recebe: <br> <br>
+                            <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg> Método PRO CODE passo a passo <br>
+                            <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg> Mentorias ao vivo <br>
+                            <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg> Grupo VIP de Sinais <br>
+                            <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg> Suporte Individual</p>
+                    </div>
+                    <button id="hero-main-cta" class="hero-cta-button highlight-cta-btn">
+                        <span style="color: #fff;">GARANTA SUA</span> VAGA!
+                    </button>
+                </div>
+                
+                
+            </div>
+            
+            
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--highlight);" class="animate-fade">MINHAS<span> APOSTAS</span></h2>
+                <p class="animate-fade delay-1">Veja Um pouco Das Minhas Apostas</p>
+            </div>
+            
+            <div class="guarantee-image animate-fade delay-2">
+                <img src="/assets/images/infoscode.png" alt="Comunidade Métodos Zero Risco - PRO CODE" style="animation-duration: 7s;">
+           </div>
+        </div>
+    </section>
+    
+    <section class="faq">
+        <div class="container faq-content">
+            <div class="section-title">
+                <h2 class="animate-fade">PERGUNTAS <span>FREQUENTES</span></h2>
+                <p class="animate-fade delay-1">Tire suas dúvidas sobre nossa comunidade e métodos</p>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item animate-fade delay-1">
+                    <div class="accordion-header">
+                        <span>Como funciona o acesso à comunidade?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Após a confirmação do seu pagamento, você recebe acesso imediato ao nosso grupo exclusivo no Telegram + área de membros com todos os materiais, estratégias e suporte da comunidade. O acesso é vitalício enquanto mantiver sua assinatura ativa e pode ser cancelado a qualquer momento.</p>
+                    </div>
+                </div>
+                <div class="accordion-item animate-fade delay-2">
+                    <div class="accordion-header">
+                        <span>Preciso ter experiência prévia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Não! Nossos materiais são organizados desde o nível iniciante até o avançado. Temos módulos específicos para quem está começando agora e quer aprender desde o básico até as estratégias mais avançadas. A comunidade também está sempre disponível para tirar dúvidas.</p>
+                    </div>
+                </div>
+                <div class="accordion-item animate-fade delay-3">
+                    <div class="accordion-header">
+                        <span>Quanto preciso investir para começar?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Nossos métodos foram desenvolvidos para funcionar com bancas a partir de R$100,00. Claro, quanto maior sua banca, maior seu potencial de lucro, mas focamos em estratégias de baixo risco que protegem seu capital enquanto geram retornos consistentes.</p>
+                    </div>
+                </div>
+                <div class="accordion-item animate-fade delay-4">
+                    <div class="accordion-header">
+                        <span>Existe garantia de resultados?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Oferecemos 7 dias de garantia incondicional. Se dentro desse período você achar que o conteúdo não é para você, devolvemos 100% do seu investimento. Quanto aos resultados, eles dependem diretamente da sua dedicação em aplicar o que é ensinado. Nossos membros ativos têm obtido excelentes resultados.</p>
+                    </div>
+                </div>
+                 <div class="accordion-item animate-fade delay-5">
+                    <div class="accordion-header">
+                        <span>Quanto tempo leva para ver resultados?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Isso varia conforme seu nível de dedicação. Alguns membros começam a ver resultados positivos já na primeira semana aplicando as estratégias básicas. Para dominar completamente os métodos mais avançados, recomendamos pelo menos 1-2 meses de prática e estudo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="final-cta" id="final-cta">
+        <div class="final-content">
+            <h2 class="animate-fade"><span>PRONTO PARA TRANSFORMAR</span> SEUS RESULTADOS?</h2>
+            <p class="animate-fade delay-1">Junte-se a centenas de pessoas que já estão mudando sua realidade financeira com métodos reais e sustentáveis.</p>
+            
+            <a href="#" class="final-button animate-fade delay-2" id="final-button">GARANTIR MEU ACESSO AGORA</a>
+            
+            
+        </div>
+    </section>
+    
+    
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo">Métodos<span>ZeroRisco</span></a>
+            
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+                <a href="#">Dúvidas</a>
+                <a href="#">Garantia</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 Métodos Zero Risco & PRO CODE. Todos os direitos reservados. <br>
+                Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.
+                <br> Site feito por <a style="color: var(--highlight); text-decoration: none;" href="https://boreljoao.github.io">João Pedro Borel</a>
             </div>
         </div>
     </footer>
 
-    <!-- Modal de Sucesso -->
-    <div class="modal" id="success-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h3>Pagamento Confirmado!</h3>
-            <p>Parabéns! Seu acesso à Comunidade Métodos Validados foi liberado com sucesso.</p>
-            <p>Você receberá um e-mail com as instruções de acesso em instantes.</p>
-            <button class="modal-button">Entendi</button>
-        </div>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Script para header fixo com scroll
+            const header = document.getElementById('main-header');
+            if (header) { // Check if header exists
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
 
-    <script src="script.js"></script>
+            // Script para partículas animadas
+            const particlesContainer = document.getElementById('particles-js');
+            if (particlesContainer) {
+                const numParticles = 50;
+                const particleTypes = [
+                    { class: 'small blue', speedFactor: 1.5 },
+                    { class: 'medium gold', speedFactor: 1 },
+                    { class: 'large accent', speedFactor: 0.7 },
+                    { class: 'small gold', speedFactor: 1.2 },
+                    { class: 'medium blue', speedFactor: 0.9 },
+                ];
+
+                for (let i = 0; i < numParticles; i++) {
+                    let particle = document.createElement('div');
+                    const type = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+                    particle.className = `particle ${type.class}`;
+                    
+                    particle.style.top = `${Math.random() * 100}%`;
+                    particle.style.left = `${Math.random() * 100}%`;
+                    
+                    const animationDuration = 8 / type.speedFactor;
+                    particle.style.animationDuration = `${animationDuration + Math.random() * 4 - 2}s`;
+                    particle.style.animationDelay = `${Math.random() * 5}s`;
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            const animatedElements = document.querySelectorAll('.animate-fade');
+            if (animatedElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target); 
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                animatedElements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(25px)';
+                    el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+                    if (el.classList.contains('delay-1')) el.style.transitionDelay = '0.1s';
+                    if (el.classList.contains('delay-2')) el.style.transitionDelay = '0.2s';
+                    if (el.classList.contains('delay-3')) el.style.transitionDelay = '0.3s';
+                    if (el.classList.contains('delay-4')) el.style.transitionDelay = '0.4s';
+                    // Add more delays if needed
+                    observer.observe(el);
+                });
+            }
+            
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            if (accordionItems.length > 0) {
+                accordionItems.forEach(item => {
+                    const accHeader = item.querySelector('.accordion-header'); // Renamed variable to avoid conflict
+                    if (accHeader) {
+                        accHeader.addEventListener('click', () => {
+                            const currentlyActive = document.querySelector('.accordion-item.active');
+                            if (currentlyActive && currentlyActive !== item) {
+                                currentlyActive.classList.remove('active');
+                            }
+                            item.classList.toggle('active');
+                        });
+                    }
+                });
+            }
+
+            const ctaButtons = document.querySelectorAll('.cta-button, .hero-cta-button, .cta-button-large, .final-button');
+            if (ctaButtons.length > 0) {
+                ctaButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const targetHref = button.getAttribute('href');
+                        if (targetHref && targetHref.startsWith('#')) {
+                            e.preventDefault(); 
+                            console.log(`Botão "${button.textContent.trim()}" clicado! Rolando para: ${targetHref}`);
+                            const targetElement = document.querySelector(targetHref);
+                            if (targetElement) {
+                                targetElement.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        } else if (targetHref && targetHref !== "#") {
+                            // Allow default behavior for external links
+                            console.log(`Botão "${button.textContent.trim()}" clicado! Redirecionando para: ${final-cta}`);
+                        } else {
+                             e.preventDefault(); // Prevent default for buttons without meaningful href
+                             console.log(`Botão "${button.textContent.trim()}" clicado! Nenhuma ação de scroll definida.`);
+                        }
+                    });
+                });
+            }
+            // ... (seu código existente) ...
+
+    // Script específico para o botão CTA principal do Hero
+    const heroMainCtaButton = document.getElementById('hero-main-cta');
+    if (heroMainCtaButton) {
+        heroMainCtaButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Previne qualquer comportamento padrão do botão
+            const targetElement = document.getElementById('final-cta'); // Ou 'final-button' se quiser o botão exato
+            if (targetElement) {
+                console.log(`Botão Hero CTA clicado! Rolando para: #${targetElement.id}`);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+            const heroSection = document.querySelector('.hero');
+            const coins = document.querySelectorAll('.hero-coin');
+
+            if (heroSection && coins.length > 0) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    const rect = heroSection.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    coins.forEach((coin) => {
+                        const speed = (coin.id === 'coin-1' ? 0.01 : (coin.id === 'coin-3' || coin.id === 'coin-5' ? 0.03 : 0.02)); // Adjusted coin-3 and coin-5 speed
+                        const offsetX = -x * speed; 
+                        const offsetY = -y * speed;
+                        
+                        let currentTransform = coin.style.transform || "";
+                        let scalePart = currentTransform.match(/scale\([^)]+\)/g);
+                        scalePart = scalePart ? scalePart[0] : 'scale(1)';
+                        
+                        coin.style.transform = `translate(${offsetX}px, ${offsetY}px) ${scalePart}`;
+                    });
+                });
+
+                heroSection.addEventListener('mouseleave', () => {
+                    coins.forEach(coin => {
+                        let currentTransform = coin.style.transform || "";
+                        let scalePart = currentTransform.match(/scale\([^)]+\)/g);
+                        scalePart = scalePart ? scalePart[0] : 'scale(1)';
+                        coin.style.transform = `translate(0px, 0px) ${scalePart}`;
+                    });
+                });
+            }
+
+            // --- START OF CUSTOM CAROUSEL SCRIPT ---
+            const carouselContainer = document.getElementById('carousel-container'); // Targets the one in .results
+            const carouselTrack = document.getElementById('carousel'); // Targets the one in .results
+
+            if (carouselContainer && carouselTrack && carouselTrack.children.length > 0) {
+                // Function to duplicate content for the loop
+                const duplicateContentForLooping = () => {
+                    const itemsToClone = Array.from(carouselTrack.children);
+                    itemsToClone.forEach(item => {
+                        const clone = item.cloneNode(true);
+                        // Remove draggable attribute from clones if it exists, though draggable="false" in HTML is better
+                        clone.removeAttribute('draggable'); 
+                        carouselTrack.appendChild(clone);
+                    });
+                };
+
+                duplicateContentForLooping(); // Creates [InitialHTMLContent][ClonedInitialHTMLContent]
+
+                let isCarouselDragging = false;
+                let carouselStartX;
+                let carouselScrollLeftAtDragStart;
+
+                // Width of the block of content that visually repeats.
+                // Since duplicateContentForLooping clones the *entire initial set of children*,
+                // repeatingBlockWidth is half of the total scrollWidth after duplication.
+                const repeatingBlockWidth = carouselTrack.scrollWidth / 2;
+
+                let currentLogicalScrollLeft = 0;
+                const carouselScrollSpeed = 0.3; // Adjust for desired auto-scroll speed
+
+                carouselContainer.addEventListener('mousedown', (e) => {
+                    isCarouselDragging = true;
+                    carouselContainer.classList.add('dragging');
+                    carouselStartX = e.pageX - carouselContainer.offsetLeft;
+                    carouselScrollLeftAtDragStart = currentLogicalScrollLeft;
+                });
+
+                const stopCarouselDragging = () => {
+                    if (isCarouselDragging) {
+                        isCarouselDragging = false;
+                        carouselContainer.classList.remove('dragging');
+                        // Sync currentLogicalScrollLeft with the actual scroll position after drag
+                        currentLogicalScrollLeft = carouselContainer.scrollLeft;
+                        // Normalize to keep it within one block, ensuring smooth transition to auto-scroll
+                        currentLogicalScrollLeft = (currentLogicalScrollLeft % repeatingBlockWidth + repeatingBlockWidth) % repeatingBlockWidth;
+                    }
+                };
+
+                carouselContainer.addEventListener('mouseleave', stopCarouselDragging);
+                carouselContainer.addEventListener('mouseup', stopCarouselDragging);
+                // Also add touch events for basic mobile support (optional, can be expanded)
+                carouselContainer.addEventListener('touchstart', (e) => {
+                    isCarouselDragging = true;
+                    carouselContainer.classList.add('dragging');
+                    carouselStartX = e.touches[0].pageX - carouselContainer.offsetLeft;
+                    carouselScrollLeftAtDragStart = currentLogicalScrollLeft;
+                }, { passive: true }); // Passive for better scroll performance on touch
+
+                carouselContainer.addEventListener('touchend', stopCarouselDragging);
+                carouselContainer.addEventListener('touchcancel', stopCarouselDragging);
+
+
+                carouselContainer.addEventListener('mousemove', (e) => {
+                    if (!isCarouselDragging) return;
+                    e.preventDefault(); // Prevent text selection during drag
+                    const x = e.pageX - carouselContainer.offsetLeft;
+                    const walk = (x - carouselStartX) * 1; // Drag sensitivity factor
+                    let newScrollLeft = carouselScrollLeftAtDragStart - walk;
+                    carouselContainer.scrollLeft = newScrollLeft;
+                    currentLogicalScrollLeft = newScrollLeft; // Keep our logical scroll in sync
+                });
+                
+                carouselContainer.addEventListener('touchmove', (e) => {
+                    if (!isCarouselDragging) return;
+                    // e.preventDefault(); // Can prevent page scroll on touch, use with caution or conditional
+                    const x = e.touches[0].pageX - carouselContainer.offsetLeft;
+                    const walk = (x - carouselStartX) * 1;
+                    let newScrollLeft = carouselScrollLeftAtDragStart - walk;
+                    carouselContainer.scrollLeft = newScrollLeft;
+                    currentLogicalScrollLeft = newScrollLeft;
+                }, { passive: true }); // Passive if not preventing default, or conditional preventDefault
+
+
+                const infiniteCarouselLoop = () => {
+                    if (!isCarouselDragging) {
+                        currentLogicalScrollLeft += carouselScrollSpeed;
+
+                        if (currentLogicalScrollLeft >= repeatingBlockWidth) {
+                            currentLogicalScrollLeft -= repeatingBlockWidth;
+                        } else if (currentLogicalScrollLeft < 0) { // Handle scrolling left if speed could be negative
+                            currentLogicalScrollLeft += repeatingBlockWidth;
+                        }
+                        carouselContainer.scrollLeft = currentLogicalScrollLeft;
+                    }
+                    requestAnimationFrame(infiniteCarouselLoop);
+                };
+                
+                // Initialize scroll position and start the loop
+                currentLogicalScrollLeft = carouselContainer.scrollLeft;
+                if (carouselTrack.children.length > 0) { // Only start if there are items
+                    infiniteCarouselLoop();
+                }
+
+            } else {
+                if (!carouselContainer) console.error("Carousel container not found!");
+                if (!carouselTrack) console.error("Carousel track not found!");
+                if (carouselTrack && carouselTrack.children.length === 0) console.warn("Carousel track has no items!");
+            }
+            // --- END OF CUSTOM CAROUSEL SCRIPT ---
+
+        });
+    </script>
 </body>
 </html>
