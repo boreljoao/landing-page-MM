@@ -115,10 +115,9 @@ body {
     box-shadow: 0 5px 20px rgba(247, 181, 0, 0.5);
     transition: all 0.3s ease; cursor: pointer;
     width: 70%; text-transform: uppercase;
-    border-radius: 20px; margin:  auto; 
+    border-radius: 20px; 
     animation: pulseButton 1.8s infinite;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6), 0 0 10px rgba(247, 181, 0, 0.5);
-    margin-top: -30px;
 }
 .hero-cta-button:hover { 
     transform: translateY(-3px); 
@@ -186,26 +185,15 @@ body {
 }
 .hero-left-panel {
     width: 40%;
-    background-image: url('/assets/images/fundotexto.png'); /* CHECAR CAMINHO */
+    background-image: url('/assets/images/cardSemButton.png'); /* CHECAR CAMINHO */
     background-size: cover; background-position: center;
-    padding: 20px 40px 40px 40px;
-    display: flex; flex-direction: column; justify-content: space-center;
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: center; 
+    padding-bottom: 110px; /* Espaçamento para o botão no final */
+    box-sizing: border-box; /* Garante que o padding não aumente a altura */
     border-radius: 12px 0 0 12px; height: 700px; align-self: center; z-index: 1; 
-    gap: 50px;
 }
-
-.logo-pro-code{
-    background-image: url('/assets/images/logo-pro-code.png'); /* CHECAR CAMINHO */
-    background-size: contain; background-repeat: no-repeat; background-position: center;
-    z-index: 2;
-    margin-top: -70px; /* Mantendo por enquanto, pode ser ajustado */
-    width: 180px; height: 180px;
-}
-.pro-code-logo-hero { margin-bottom: 30px; display: flex; align-items: center; justify-content: flex-start; flex-direction: column; }
-.pro-code-logo-hero h1 {
-    font-size: 3.5rem; font-weight: bold; color: white;
-    text-shadow: 0 0 6px var(--primary), 0 0 12px var(--primary), 0 0 18px var(--accent), 0 0 24px var(--accent);
-    letter-spacing: 2px; line-height: 0.9;
+.hcta{
+    width: 60%;
 }
 .hero-left-panel div p{
     font-family: rajdhani;
@@ -359,8 +347,10 @@ body {
     border-radius: 12px 12px 0 0; /* Round top corners if button is separate */
 }
 .cta-card.acesso .card-cta-button { /* Button Specific to "acesso" card */
-    margin: 0.1px auto; /* No negative margin if it's below the image */
-    margin-top: -15px;
+    margin-top: auto; /* Empurra para o final verticalmente */
+    margin-left: 40px; /* Aumentado para mover mais para a direita */
+    margin-bottom: 0; /* Ou um valor pequeno se necessário, o padding do .highlight deve cuidar disso */
+    margin-right: 0;
     position: relative;
     /* The button will naturally sit below the image due to flex-direction: column */
 }
@@ -380,10 +370,13 @@ body {
 .guarantee h2 span { color: var(--primary); }
 .guarantee p { color: #b0bec5; margin-bottom: 25px;}
 .highlight {
-    background-color: #000213; padding: 30px; border-radius: 12px;
+    background-image: url(/assets/images/cardPlano.png); background-size: cover; background-position: center; padding: 30px; border-radius: 12px;
     margin: 30px 0;  position: relative; overflow: hidden;
+    padding-bottom: 300px !important;
 }
-
+.highlight-cta-btn{
+    width: 40% !important;
+}
 .highlight-content { position: relative; z-index: 1; }
 .highlight h3 { color: var(--light); margin-bottom: 18px; font-size: 1.4rem; font-weight: 700; }
 .guarantee-list { list-style-type: none; margin: 25px 0; padding-left: 0; } 
@@ -410,7 +403,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 600px;
     width: 80%;
     border-radius: 25px;
@@ -604,8 +597,10 @@ select:focus-visible, textarea:focus-visible {
 }
 .highlight-cta-btn {
     width: 400px;
-    align-self: center;
-    margin: 20px;
+    margin-top: auto;
+    margin-left: 110px;
+    margin-bottom: 0;
+    margin-right: 0;
 }
 .highlight-cta-btn span {
     color: #fff;
@@ -664,28 +659,35 @@ select:focus-visible, textarea:focus-visible {
 
 @media (max-width: 1035px) {
     .hero-content-wrapper{
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
+    
     #bet-card-1 { top: 6%; right: 14.5%; width: 280px; }
     #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
     #bet-card-3 { top: 29%; left: 1%; width: 300px; } /* Mantendo left: 5% como em 1565px e 1013px */
     #coin-1 { width: 200px; height: 200px; bottom: 12%; left: 18%; }
     #coin-3 { width: 130px; height: 130px; top: 35%; right: 8%; }
     #coin-5 { width: 130px; height: 130px; top: 20%; right: 68%; }
+    .hero-left-panel{
+        width: 60%;
+    }
 
 }
 @media (max-width: 992px) {
     .highlight-price { font-size: 3rem; }
     .highlight-benefits { font-size: 1.5rem; }
-    .highlight-cta-btn { width: 90%; font-size: 1.1rem; }
+    .highlight-cta-btn { width: 320px; margin-left: 80px; margin-top: auto; font-size: 1.1rem; margin-bottom: 0; margin-right: 0; }
 }
 @media (max-width: 768px) {
    
-    .highlight-price { font-size: 1.5rem; }
-    .highlight-benefits { font-size: 1rem; }
-    .highlight-cta-btn { width: 100%; font-size: 1rem; }
     .highlight{
-        height: 80%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .highlight-cta-btn { width: 30% !important; margin-left: 150px !important; margin-top: 240px !important; font-size: 0.5rem !important; margin-bottom: 0; padding: 5px 0 !important;}
+    .highlight{
+        padding-left: 140px !important;
     }
     .hcb {
         padding: 10px 0;
@@ -693,14 +695,31 @@ select:focus-visible, textarea:focus-visible {
         width: 85%;
     }
 }
+@media (max-width: 628px) {
+    .highlight-cta-btn { width: 30% !important; margin-left: 100px !important; margin-top: 250px !important; font-size: 0.5rem !important; margin-bottom: 0; padding: 5px 0 !important;}
+    .highlight{
+        padding-left: 90px !important;
+    }
+}
+@media (max-width: 511px) {
+    .highlight-cta-btn { width: 30% !important; margin-left: 100px !important; margin-top: 270px !important; font-size: 0.5rem !important; margin-bottom: 0; padding: 5px 0 !important;}
+
+    .highlight{
+        padding-left: 90px !important;
+        height: 100%;
+    }
+}
 @media (max-width: 576px) {
     .highlight-price { font-size: 1.1rem; }
     .highlight-benefits { font-size: 0.85rem; }
-    .highlight-cta-btn { font-size: 0.95rem; }
+    
     .hcb {
         padding: 8px 0;
         font-size: 0.8rem;
         width: 80%;
+    }
+    .hero-left-panel{
+        padding-bottom: 100px !important;
     }
 }
 @media (max-width: 426px) {
@@ -711,12 +730,16 @@ select:focus-visible, textarea:focus-visible {
 @media (max-width: 400px) {
     .highlight-price { font-size: 0.95rem; }
     .highlight-benefits { font-size: 0.75rem; }
-    .highlight-cta-btn { font-size: 0.85rem; }
+    .highlight-cta-btn { width: 200px; margin-left: 10px; margin-top: auto; font-size: 0.85rem; padding: 8px 0; margin-bottom: 0; margin-right: 0; }
 }
 
 /* --- Media Queries (Consolidated & Hero Adjustments Prioritized) --- */
 
-
+@media (max-width: 1080px) {
+    .highlight-cta-btn {
+        margin-left: 70px !important;
+    }
+}
 @media (max-width: 1013px) { 
     .logo{ font-size: 18px; }
     .cta-button{ font-size: 10px; text-align: center; padding: 5px; }
@@ -727,12 +750,12 @@ select:focus-visible, textarea:focus-visible {
     #bet-card-1 { right: 12%; }
 }
 
-@media (max-width: 908px) { 
+@media (max-width: 908px) {
     .hero { min-height: auto; padding: 90px 0 30px; text-align: center; }
-    .hero-content-wrapper { flex-direction: column-reverse; align-items: center; }
+    .hero-content-wrapper { flex-direction: column; align-items: center; }
     .hero-left-panel {
         width: 90%; max-width: 550px;
-        height: 500px; padding: 50px 15px 25px; 
+        height: 500px; padding: 50px 15px 25px; /* padding-bottom de 25px já está aqui e é adequado */
         margin-bottom: 30px; border-radius: 12px;
     }
     .hero-left-panel::before {
@@ -753,9 +776,8 @@ select:focus-visible, textarea:focus-visible {
     .pro-code-logo-hero h1 { font-size: 2.2rem; }
     .pro-code-logo-hero .line2 { margin-left: 0; }
     .pro-code-subtext-hero { justify-content: center; }
-    .hero-cta-button { width: 85%; margin-top: 20px; }
+    .hero-cta-button { width: 85%; /* margin-top: 20px; Removido */ }
 
-    .grafico-fundo { top: 0%; left: 0%;} 
 
     .hero-right-visuals { width: 100%; height: auto; min-height: 400px; position: relative; } 
     .hero-person-image{
@@ -777,7 +799,12 @@ select:focus-visible, textarea:focus-visible {
     #coin-5 { width: 150px; height: 150px; top: 40%; right: 10%; } 
     .particles-container{ z-index: 0; } 
 }
-
+@media (max-width: 837px) {
+    .highlight-cta-btn {
+        margin-left: 40px !important;
+        padding: 10px 0;
+    }
+}
 @media (max-width: 768px) {
     .container { padding: 0 10px; } header .container { padding: 0 10px; }
     #coin-1 { width: 130px; height: 130px; bottom: 15%; left: 25%;}
@@ -811,20 +838,20 @@ select:focus-visible, textarea:focus-visible {
         /* The button will naturally sit below the image due to flex-direction: column */
     }
     .highlight {
-        padding: 38px;
-        width: 98%;
+        width: 100%;
+        height: auto;
+        padding: 20px 10px 20px 10px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         border-radius: 18px;
     }
-    .highlight-price {
-        font-size: 1.5rem;
-    }
-    .highlight-benefits {
-        font-size: 0.95rem;
-    }
     .highlight-cta-btn {
-        width: 100%;
+        width: 90%;
+        margin-left: 0;
+        margin-top: auto;
         font-size: 1rem;
-        margin: 12px 0 0 0;
+        padding: 12px 0;
     }
 }
 @media (max-width: 618px) {
@@ -844,7 +871,7 @@ select:focus-visible, textarea:focus-visible {
     .cta-button { padding: 8px 15px; font-size: 11px; } 
 
     .hero { padding: 80px 0 30px; }
-    .hero-left-panel { padding: 0; margin: 0; }
+    .hero-left-panel { padding: 0; margin: 0; padding-bottom: 20px; /* Adiciona espaço para o botão */ }
     .hero-left-panel::before { width: 150px; height: 150px; top: -25px; }
     .hero-left-panel p{
         font-size: 0.9rem;
@@ -932,6 +959,17 @@ select:focus-visible, textarea:focus-visible {
 }
 @media (max-width: 484px) {
     #bet-card-1 { width: 200px; top: 5%; left: 60%; }
+    .highlight-cta-btn { width: 180px; margin-left: 0; margin-top: auto; font-size: 0.9rem; margin-bottom: 0; margin-right: 0; }
+    .highlight{
+        width: 150%;
+        background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+        height: 100%;
+    }
+    .guarantee-content{
+        width: 50%;
+    }
 }
 @media (max-width: 461px) {
     #bet-card-1 { width: 200px; top: 5%; left: 52%; }
@@ -1018,6 +1056,18 @@ select:focus-visible, textarea:focus-visible {
 }
 @media (max-width: 364px) {
     .hero-person-image { width: 300px; left: -1%; }
+    .hero-left-panel{
+        padding-bottom: 80px !important;
+        width: 100%;
+        height: 400px;
+    }
+    .hcta{
+        width: 60%;
+    }
+    .highlight-cta-btn { width: 30% !important; margin-left: 10px !important; margin-top: 270px !important; font-size: 0.5rem !important; margin-bottom: 0; padding: 5px 0 !important;}
+    .highlight{
+        height: 100%;
+    }
 }
 @media (max-width: 338px) {
     .hcb{
