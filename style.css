@@ -117,6 +117,7 @@ body {
     width: 70%; text-transform: uppercase;
     border-radius: 20px; margin:  auto; 
     animation: pulseButton 1.8s infinite;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6), 0 0 10px rgba(247, 181, 0, 0.5);
     margin-top: -30px;
 }
 .hero-cta-button:hover { 
@@ -158,6 +159,7 @@ body {
     box-shadow: 0 8px 25px rgba(247, 181, 0, 0.45);
     position: relative; overflow: hidden; text-transform: uppercase; letter-spacing: 0.8px;
     animation: pulseButton 1.8s infinite;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6), 0 0 10px rgba(247, 181, 0, 0.5);
 }
 .final-button:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 12px 35px rgba(247, 181, 0, 0.6); animation: none; }
 
@@ -306,6 +308,8 @@ body {
     max-width: 1400px; margin: 0 auto;
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
+    margin-left: 45px;
     justify-content: space-between; gap: 100px; 
     align-items: stretch; /* Changed from flex-start to stretch */
 }
@@ -327,7 +331,6 @@ body {
     transform: translateX(-50%);
     width: 90%;
     max-width: 300px;
-    margin: 0;
     border-radius: 50px;
     padding: 12px 0;
     background: linear-gradient(to right, var(--secondary), var(--highlight));
@@ -338,12 +341,13 @@ body {
     transition: all 0.3s ease;
     z-index: 2;
     box-shadow: 0 4px 15px rgba(247, 181, 0, 0.3);
-    animation: none !important; /* Impede a herança da animação pulseButton */
+    animation: pulseHcb 2s infinite ease-in-out;
 }
 
 .hcb:hover {
     transform: translateX(-50%) translateY(-2px);
     box-shadow: 0 6px 20px rgba(247, 181, 0, 0.5);
+    animation-play-state: paused;
 }
 
 .cta-card.image-card img {
@@ -450,7 +454,7 @@ body {
 .rating { color: var(--highlight); margin-top: 4px; font-size: 0.9rem; }
 
 /* --- FAQ Section --- */
-.faq { background-color: #10141F; padding: 100px 0; position: relative; color: var(--light); z-index: 1;}
+.faq { background-color: #10141F; padding: 100px 0; position: relative; color: var(--light); z-index: 1; clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);}
 .faq::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(16, 20, 31, 0.08), rgba(0, 169, 255, 0.015));
@@ -559,6 +563,15 @@ footer {
     }
 }
 
+@keyframes pulseHcb {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.03);
+    }
+}
+
 .animate-fade { opacity: 0; }
 .floating { animation: float 6s ease-in-out infinite; }
 
@@ -651,7 +664,7 @@ select:focus-visible, textarea:focus-visible {
 
 @media (max-width: 1035px) {
     .hero-content-wrapper{
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     #bet-card-1 { top: 6%; right: 14.5%; width: 280px; }
     #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
@@ -690,6 +703,11 @@ select:focus-visible, textarea:focus-visible {
         width: 80%;
     }
 }
+@media (max-width: 426px) {
+    .hcb{
+        width: 70% !important;
+    }
+}
 @media (max-width: 400px) {
     .highlight-price { font-size: 0.95rem; }
     .highlight-benefits { font-size: 0.75rem; }
@@ -711,7 +729,7 @@ select:focus-visible, textarea:focus-visible {
 
 @media (max-width: 908px) { 
     .hero { min-height: auto; padding: 90px 0 30px; text-align: center; }
-    .hero-content-wrapper { flex-direction: column; align-items: center; }
+    .hero-content-wrapper { flex-direction: column-reverse; align-items: center; }
     .hero-left-panel {
         width: 90%; max-width: 550px;
         height: 500px; padding: 50px 15px 25px; 
@@ -1001,7 +1019,18 @@ select:focus-visible, textarea:focus-visible {
 @media (max-width: 364px) {
     .hero-person-image { width: 300px; left: -1%; }
 }
-
+@media (max-width: 338px) {
+    .hcb{
+        width: 80% !important;
+        padding: 5px 15px !important;
+    }
+}
+@media (max-width: 325px) {
+    .hcb{
+        width: 200px !important;
+        padding: 2px 15px !important;
+    }
+}
 @media (max-width: 329px) {
     #bet-card-1 { width: 130px; top: 1%; right: 50%; }
     #bet-card-2 { width: 130px; bottom: 1%; right: 5%; }
