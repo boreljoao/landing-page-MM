@@ -18,8 +18,8 @@
 }
 
 html {
-    scroll-behavior: smooth;
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -33,6 +33,7 @@ body {
     overflow-x: hidden;
     position: relative; 
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 
