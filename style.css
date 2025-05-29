@@ -27,7 +27,7 @@ body {
     color: var(--light);
     line-height: 1.6;
     background-image: url('/assets/images/fundo.png'); /* CHECAR CAMINHO */
-    background-size: cover; /* Faz a imagem cobrir todo o fundo */
+    background-size: contain; /* Faz a imagem cobrir todo o fundo */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
     background-position: center center; /* Centraliza a imagem */
     background-attachment: fixed; /* Mantém a imagem fixa durante o scroll (opcional) */
