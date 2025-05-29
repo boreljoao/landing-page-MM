@@ -27,7 +27,7 @@ body {
     color: var(--light);
     line-height: 1.6;
     background-image: url('/assets/images/fundo.png'); /* CHECAR CAMINHO */
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-attachment: fixed; 
     overflow-x: hidden;
@@ -114,9 +114,10 @@ body {
     font-size: 1.2rem; font-weight: bold;
     box-shadow: 0 5px 20px rgba(247, 181, 0, 0.5);
     transition: all 0.3s ease; cursor: pointer;
-    width: 80%; text-transform: uppercase;
-    border-radius: 20px; margin: 20px auto 0; 
+    width: 70%; text-transform: uppercase;
+    border-radius: 20px; margin:  auto; 
     animation: pulseButton 1.8s infinite;
+    margin-top: -30px;
 }
 .hero-cta-button:hover { 
     transform: translateY(-3px); 
@@ -165,6 +166,9 @@ body {
     color: var(--light); padding: 120px 0 80px; text-align: left;
     position: relative; min-height: 850px; display: flex;
     align-items: center; overflow: hidden; z-index: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .grafico-fundo { 
     position: absolute; top: 0; bottom: -1%; left: 0; width: 100%; height: 100%; 
@@ -173,27 +177,29 @@ body {
     z-index: 1; filter: brightness(1.2) contrast(0.9); mix-blend-mode: screen; 
 }
 .hero-content-wrapper { 
-    position: relative; z-index: 2; 
-    width: 100%; max-width: 1100px; margin: 0 auto; display: flex;
+    position: relative; z-index: 2; margin: 0;
+    width: 100%; max-width: 1700px; display: flex;
+    justify-content: space-between;
+    display: flex;
 }
 .hero-left-panel {
     width: 40%;
     background-image: url('/assets/images/fundotexto.png'); /* CHECAR CAMINHO */
     background-size: cover; background-position: center;
     padding: 20px 40px 40px 40px;
-    display: flex; flex-direction: column; justify-content: center;
-    border-radius: 12px 0 0 12px; height: 700px; align-self: center;
-    position: relative; z-index: 1; 
+    display: flex; flex-direction: column; justify-content: space-center;
+    border-radius: 12px 0 0 12px; height: 700px; align-self: center; z-index: 1; 
+    gap: 50px;
 }
-.hero-left-panel::before{
-    content: ''; position: absolute; top: -5%; left: 50%;
-    transform: translateX(-50%);
-    width: 180px; height: 180px;
+
+.logo-pro-code{
     background-image: url('/assets/images/logo-pro-code.png'); /* CHECAR CAMINHO */
     background-size: contain; background-repeat: no-repeat; background-position: center;
-    z-index: 2; 
+    z-index: 2;
+    margin-top: -70px; /* Mantendo por enquanto, pode ser ajustado */
+    width: 180px; height: 180px;
 }
-.pro-code-logo-hero { margin-bottom: 30px; }
+.pro-code-logo-hero { margin-bottom: 30px; display: flex; align-items: center; justify-content: flex-start; flex-direction: column; }
 .pro-code-logo-hero h1 {
     font-size: 3.5rem; font-weight: bold; color: white;
     text-shadow: 0 0 6px var(--primary), 0 0 12px var(--primary), 0 0 18px var(--accent), 0 0 24px var(--accent);
@@ -206,7 +212,7 @@ body {
 .pro-code-logo-hero .line2 { margin-left: 30px; margin-top: -10px; }
 .pro-code-subtext-hero { display: flex; align-items: center; margin-top: 15px; font-size: 0.9rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
 .pro-code-subtext-hero i { margin-right: 8px; font-size: 1.2rem; }
-.hero-right-visuals { position: relative; flex-grow: 1; height: 800px; align-self: center; z-index: 2; }
+.hero-right-visuals { position: relative; flex-grow: 1; height: 800px; align-self: right; z-index: 2;  }
 .hero-person-image { 
     position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
     width: 850px; height: 800px; object-fit: contain; z-index: 3; 
@@ -215,17 +221,17 @@ body {
     position: absolute; width: 250px; /* Base width, will be overridden in media queries */
     height: auto; border-radius: 10px;
     transition: transform 0.3s ease, z-index 0.3s ease; z-index: 4; 
+    animation: floatCard 4s ease-in-out infinite;
 }
 .hero-bet-card img { width: 100%; height: auto; display: block; border-radius: 10px; } /* Ensure images within cards are responsive */
-.hero-bet-card:hover { transform: scale(1.05); z-index: 6; } 
-#bet-card-1 { top: -5%; right: 1%; width: 300px; z-index: 3; } 
-#bet-card-1:hover { z-index: 6; transform: scale(1.08); }
-#bet-card-2 {bottom: -5%; right: -1%; width: 350px; z-index: 4; } 
-#bet-card-3 { top: 20%; left: 4%; width: 320px; z-index: 4; }
+.hero-bet-card:hover { transform: scale(1.05); z-index: 6; animation-play-state: paused; } 
+#bet-card-1 { top: 5%; right: 14%; width: 300px; z-index: 3; animation-delay: 0.5s; } 
+#bet-card-2 {bottom: 10%; right: 11%; width: 350px; z-index: 4; animation-delay: 1s; } 
+#bet-card-3 { top: 29%; left: 10%; width: 320px; z-index: 4; animation-delay: 1.5s; }
 .hero-coin { position: absolute; object-fit: contain; animation: pulseCoin 3.5s infinite ease-in-out; z-index: 5; }
-#coin-1 { width: 220px; height: 220px; bottom: 1%; left: 15%; animation-delay: 0s; }
-#coin-3 { width: 200px; height: 300px; top: 22%; right: 4%; opacity: 0.75; animation-delay: 1.2s; z-index: 2;} 
-#coin-5 { width: 200px; height: 200px; top: 2%; right: 50%; opacity: 0.75; animation-delay: 1.2s; z-index: 2;}
+#coin-1 { width: 220px; height: 220px; bottom: 10%; left: 25%; animation-delay: 0s; }
+#coin-3 { width: 200px; height: 300px; top: 24%; right: 15%; opacity: 0.75; animation-delay: 1.2s; z-index: 2;} 
+#coin-5 { width: 200px; height: 200px; top: 13%; right: 60%; opacity: 0.75; animation-delay: 1.2s; z-index: 2;}
 
 /* --- Stars (Separate Particle Effect) --- */
 .stars-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
@@ -254,6 +260,8 @@ body {
     padding: 100px 0; /* Adjusted padding-bottom */
     position: relative; z-index: 1; color: var(--light);
     clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%); /* Optional clip-path */
+    background-color: #10141F;
+    clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
 }
 #carousel-container {
     max-width: 1200px; width: 100%; overflow: hidden;
@@ -355,7 +363,7 @@ body {
 /* Styles from previous .cta-section .cta-card (text based) are removed or repurposed */
 
 /* --- Guarantee Section --- */
-.guarantee { padding: 120px 0 90px; position: relative; color: var(--light); z-index: 1; clip-path: polygon(0 5%, 100% 0, 100% 90%, 0 100%);}
+.guarantee { padding: 120px 0 90px; background-color: #10141F; position: relative; color: var(--light); z-index: 1; clip-path: polygon(0 5%, 100% 0, 100% 90%, 0 100%);}
 .guarantee-container { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
 .guarantee-content { flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center; }
 .guarantee-image { min-width: 280px; text-align: center; display: flex; justify-content: center; align-items: center; }
@@ -368,7 +376,7 @@ body {
 .guarantee h2 span { color: var(--primary); }
 .guarantee p { color: #b0bec5; margin-bottom: 25px;}
 .highlight {
-    background-color: var(--dark); padding: 30px; border-radius: 12px;
+    background-color: #000213; padding: 30px; border-radius: 12px;
     margin: 30px 0;  position: relative; overflow: hidden;
 }
 
@@ -442,7 +450,7 @@ body {
 .rating { color: var(--highlight); margin-top: 4px; font-size: 0.9rem; }
 
 /* --- FAQ Section --- */
-.faq { padding: 100px 0; position: relative; color: var(--light); z-index: 1;}
+.faq { background-color: #10141F; padding: 100px 0; position: relative; color: var(--light); z-index: 1;}
 .faq::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(16, 20, 31, 0.08), rgba(0, 169, 255, 0.015));
@@ -542,6 +550,15 @@ footer {
     50% { transform: scale(1.1); }
 }
 
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 .animate-fade { opacity: 0; }
 .floating { animation: float 6s ease-in-out infinite; }
 
@@ -582,6 +599,68 @@ select:focus-visible, textarea:focus-visible {
 }
 
 /* Responsividade */
+@media (max-width: 1565px) {
+    #bet-card-1 { top: 5%; right: 10.5%; width: 300px; z-index: 3; animation-delay: 0.5s; } 
+    #bet-card-2 {bottom: 10%; right: 11%; width: 350px; z-index: 4; animation-delay: 1s; } 
+    #bet-card-3 { top: 29%; left: 10%; width: 320px; z-index: 4; animation-delay: 1.5s; }
+    #coin-1 { width: 220px; height: 220px; bottom: 14%; left: 21%; animation-delay: 0s; }
+    #coin-3 { width: 130px; height: 130px; top: 35%; right: 11%;}
+    #coin-5 { width: 130px; height: 130px; top: 20%; right: 65%;} 
+}
+@media (max-width: 1466px) {
+    #bet-card-1 { top: 6%; right: 8%; width: 280px; }
+    #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
+    #bet-card-3 { top: 29%; left: 5%; width: 300px; } /* Mantendo left: 5% como em 1565px e 1013px */
+    #coin-1 { width: 200px; height: 200px; bottom: 12%; left: 18%; }
+    #coin-3 { width: 130px; height: 130px; top: 35%; right: 8%; }
+    #coin-5 { width: 130px; height: 130px; top: 20%; right: 60%; }
+}
+@media (max-width: 1348px) {
+    #bet-card-1 { top: 6%; right: 5%; width: 280px; }
+    #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
+    #bet-card-3 { top: 29%; left: 1%; width: 300px; } /* Mantendo left: 5% como em 1565px e 1013px */
+    #coin-1 { width: 200px; height: 200px; bottom: 12%; left: 18%; }
+    #coin-3 { width: 130px; height: 130px; top: 35%; right: 8%; }
+    #coin-5 { width: 130px; height: 130px; top: 20%; right: 68%; }
+}
+
+@media (max-width: 1249px) {
+    #bet-card-1 { top: 6%; right: 2%; width: 280px; }
+    #bet-card-2 { bottom: 8%; right: 0%; width: 320px; }
+    #bet-card-3 { top: 29%; left: 1%; width: 300px; } /* Mantendo left: 5% como em 1565px e 1013px */
+    #coin-1 { width: 200px; height: 200px; bottom: 12%; left: 18%; }
+    #coin-3 { width: 130px; height: 130px; top: 35%; right: 8%; }
+    #coin-5 { width: 130px; height: 130px; top: 20%; right: 68%; }
+}
+
+@media (max-width: 1192px) {
+    #bet-card-1 { top: 6%; right: 0%; width: 280px; }
+    #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
+    #bet-card-3 { top: 29%; left: 1%; width: 300px; } /* Mantendo left: 5% como em 1565px e 1013px */
+    #coin-1 { width: 200px; height: 200px; bottom: 12%; left: 18%; }
+    #coin-3 { width: 130px; height: 130px; top: 35%; right: 8%; }
+    #coin-5 { width: 130px; height: 130px; top: 20%; right: 68%; }
+}
+
+@media (max-width: 1138px) {
+    #bet-card-1 { top: 6%; right: -3%; width: 280px; }
+}
+@media (max-width: 1080px) {
+    #bet-card-1 { top: 6%; right: -5.5%; width: 280px; }
+}
+
+@media (max-width: 1035px) {
+    .hero-content-wrapper{
+        flex-direction: column;
+    }
+    #bet-card-1 { top: 6%; right: 14.5%; width: 280px; }
+    #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
+    #bet-card-3 { top: 29%; left: 1%; width: 300px; } /* Mantendo left: 5% como em 1565px e 1013px */
+    #coin-1 { width: 200px; height: 200px; bottom: 12%; left: 18%; }
+    #coin-3 { width: 130px; height: 130px; top: 35%; right: 8%; }
+    #coin-5 { width: 130px; height: 130px; top: 20%; right: 68%; }
+
+}
 @media (max-width: 992px) {
     .highlight-price { font-size: 3rem; }
     .highlight-benefits { font-size: 1.5rem; }
@@ -618,31 +697,16 @@ select:focus-visible, textarea:focus-visible {
 }
 
 /* --- Media Queries (Consolidated & Hero Adjustments Prioritized) --- */
-@media (max-width: 1200px) { 
-    .container, .hero-content-wrapper { max-width: 95%; } 
-}
+
 
 @media (max-width: 1013px) { 
     .logo{ font-size: 18px; }
     .cta-button{ font-size: 10px; text-align: center; padding: 5px; }
-
-    .hero-left-panel{ width: 300px; } 
-    .hero-left-panel::before{ left: 28%; width: 130px; height: 130px; top: -3%;} 
-
-    .hero-person-image{ width: 480px; transform: translateX(-50%); } 
-    
-    #bet-card-1 { top: 10%; right: 5%; width: 180px; }
-    #bet-card-2 { bottom: 5%; right: 2%; width: 220px; }
-    #bet-card-3 { top: 30%; left: 5%; width: 200px; }
-
-    #coin-1 { width: 140px; height: 140px; bottom: 5%; left: 15%;}
-    #coin-3 { width: 130px; height: 130px; top: 35%; right: 5%;}
-    #coin-5 { width: 130px; height: 130px; top: 20%; right: 50%;} 
 }
 
 
 @media (max-width: 970px) { 
-    #bet-card-1 { right: 7%; }
+    #bet-card-1 { right: 12%; }
 }
 
 @media (max-width: 908px) { 
@@ -687,9 +751,9 @@ select:focus-visible, textarea:focus-visible {
         width: 40%;
         margin-top: -10px;
     }
-    #bet-card-1 { width: 300px; top: 5%; left: 56.5%; right: auto; }
-    #bet-card-2 { width: 300px; bottom: 2%; right: 10%; left: auto; }
-    #bet-card-3 { width: 300px; top: 25%; left: 10%; right: auto; }
+    #bet-card-1 { width: 250px; top: 5%; left: 58%; right: auto; }
+    #bet-card-2 { width: 250px; bottom: 2%; right: 10%; left: auto; }
+    #bet-card-3 { width: 250px; top: 25%; left: 10%; right: auto; }
     #coin-1 { width: 150px; height: 150px; bottom: 15%; left: 35%;}
     #coin-3 { width: 150px; height: 150px; top: 15%; right: 50%; }
     #coin-5 { width: 150px; height: 150px; top: 40%; right: 10%; } 
@@ -701,7 +765,7 @@ select:focus-visible, textarea:focus-visible {
     #coin-1 { width: 130px; height: 130px; bottom: 15%; left: 25%;}
     #coin-3 { width: 130px; height: 130px; top: 15%; right: 50%; }
     #coin-5 { width: 130px; height: 130px; top: 40%; right: 5%; }   
-    #bet-card-1 { width: 250px; top: 5%; left: 56.5%; right: auto; }
+    #bet-card-1 { width: 250px; top: 5%; left: 59%; right: auto; }
     #bet-card-2 { width: 250px; bottom: 2%; right: 10%; left: auto; }
     #bet-card-3 { width: 250px; top: 25%; left: 10%; right: auto; }
     .section-title h2 { font-size: 1.6rem; }
@@ -746,12 +810,12 @@ select:focus-visible, textarea:focus-visible {
     }
 }
 @media (max-width: 618px) {
-    #bet-card-1 { width: 200px; top: 5%; left: 56.5%; right: auto; }
+    #bet-card-1 { width: 200px; top: 5%; left: 60%; right: auto; }
     #bet-card-2 { width: 200px; bottom: 2%; right: 10%; left: auto; }
-    #bet-card-3 { width: 200px; top: 25%; left: 10%; right: auto; }
-    #coin-1 { width: 90px; height: 90px; bottom: 15%; left: 25%;}
-    #coin-3 { width: 90px; height: 90px; top: 15%; right: 50%; }
-    #coin-5 { width: 90px; height: 90px; top: 40%; right: 5%; }   
+    #bet-card-3 { width: 200px; top: 30%; left: 10%; right: auto; }
+    #coin-1 { width: 100px; height: 100px; bottom: 15%; left: 25%;}
+    #coin-3 { width: 100px; height: 100px; top: 15%; right: 50%; }
+    #coin-5 { width: 100px; height: 100px; top: 40%; right: 5%; }   
 
 }
 
@@ -775,17 +839,13 @@ select:focus-visible, textarea:focus-visible {
     .hero-cta-button { font-size: 0.9rem; padding: 10px 8px; width: 55%; }
     .hero-right-visuals { min-height: 350px; } 
     .hero-person-image { max-width: 280px; width: 90%; height: 90%; margin: 0 auto;  } 
-    .hero-bet-card { transform: scale(0.6); }
-    #bet-card-1 { width: 200px; top: 5%; left: 63%; }
-    #bet-card-2 { width: 200px; bottom: 8%; right: -5%; }
-    #bet-card-3 { width: 200px; top: 25%; left: 0%; right: auto; }
-    #coin-1 { width: 120px; height: 120px; left: 10%; bottom: 15%; }
+    #bet-card-1 { width: 200px; top: 5%; left: 61%; }
+    #bet-card-2 { width: 200px; bottom: 10%; right: 5%; }
+    #bet-card-3 { width: 200px; top: 25%; left: 2%; right: auto; }
+    #coin-1 { width: 120px; height: 120px; left: 24%; bottom: 15%; }
     #coin-3 { width: 120px; height: 120px; top: 35%; right: -5%; }
     #coin-5 { width: 120px; height: 120px; top: 15%; right: 50%; }
-    #bet-card-1:hover, #bet-card-2:hover, #bet-card-3:hover {
-        transform: none;
-        box-shadow: none;
-    }
+   
     .hero-person-image { 
         max-width: 550px;
         width: 100%;
@@ -852,16 +912,35 @@ select:focus-visible, textarea:focus-visible {
         min-width: 120px;
     }
 }
+@media (max-width: 484px) {
+    #bet-card-1 { width: 200px; top: 5%; left: 60%; }
+}
 @media (max-width: 461px) {
-    #bet-card-1 { width: 200px; top: 5%; left: 50%; }
+    #bet-card-1 { width: 200px; top: 5%; left: 52%; }
     #bet-card-2 { width: 200px; bottom: 5%; right: 2%; }
     #bet-card-3 { width: 200px; top: 30%; left: 5%; }
 
-    #coin-1 { width: 80px; height: 80px; bottom: 5%; left: 15%; }
-    #coin-3 { width: 70px; height: 70px; top: 40%; right: 1%; }
-    #coin-5 { width: 75px; height: 75px; top: 20%; right: 70%; }
+    #coin-1 { width: 100px; height: 100px; bottom: 5%; left: 15%; }
+    #coin-3 { width: 100px; height: 100px; top: 40%; right: 1%; }
+    #coin-5 { width: 100px; height: 100px; top: 20%; right: 60%; }
 
-    .hero-person-image { width: 510px; left: -20%; }
+    .hero-person-image { width: 410px; left: -10px;}
+}
+@media (max-width: 432px) {
+    #bet-card-1 { width: 200px; top: 5%; left: 54.5%; }
+    #bet-card-2 { width: 200px; bottom: 5%; right: 5%; }
+    #bet-card-3 { width: 200px; top: 30%; left: -5%; }
+
+}
+@media (max-width: 436px) {
+    #bet-card-1 { width: 200px; top: 5%; left: 55%; }
+    #bet-card-2 { width: 200px; bottom: -5%; right: 5%; }
+}
+@media (max-width: 415px) { 
+    #bet-card-1 { width: 180px; top: 5%; left: 59%; }
+    #bet-card-2 { width: 180px; bottom: -5%; right: 5%; }
+    #bet-card-3 { width: 180px; top: 30%; left: -5%; }
+
 }
 @media (max-width: 400px) { 
     .hero-left-panel::before { width: 130px; height: 130px; top: -15px; }
@@ -902,13 +981,35 @@ select:focus-visible, textarea:focus-visible {
         padding: 8px 0;
     }
 }
-@media (max-width: 370px) {
-    #bet-card-1 { width: 120px; top: 1%; left: 52%;} 
-    #bet-card-2 { width: 120px; bottom: 1%; right: 1%;}
-    #bet-card-3 { width: 120px; top: 35%; left: 0%;}
-    #coin-1 { width: 60px; height: 60px; bottom: 0.5%;} 
-    #coin-3 { width: 50px; height: 80px; top: 30%; right: 1%;}  
-    .hero-person-image { width: 250px; left: auto; }
+@media (max-width: 385px) {
+    #bet-card-1 { width: 150px; top: 1%; left: 52%; }
+    #bet-card-2 { width: 150px; bottom: 1%; right: 5%; }
+    #bet-card-3 { width: 150px; top: 35%; left: 0%; }
+    #coin-1 { width: 65px; height: 65px; bottom: 0.5%; }
+    #coin-3 { width: 55px; height: 85px; top: 30%; right: 10%; }
+    .hero-person-image { width: 350px; left: -5%; }
+    #coin-5 {  top: 13%; }
+}
+
+
+
+
+
+@media (max-width: 373px) {
+    #bet-card-1 { width: 150px; top: 1%; left: 53.6%; }
+}
+@media (max-width: 364px) {
+    .hero-person-image { width: 300px; left: -1%; }
+}
+
+@media (max-width: 329px) {
+    #bet-card-1 { width: 130px; top: 1%; right: 50%; }
+    #bet-card-2 { width: 130px; bottom: 1%; right: 5%; }
+    #bet-card-3 { width: 130px; top: 35%; left: 0%; }
+    #coin-1 { width: 65px; height: 65px; bottom: 0.5%; }
+    #coin-3 { width: 55px; height: 85px; top: 30%; right: 10%; }
+    .hero-person-image { width: 300px; left: -5%; }
+    #coin-5 {  top: 13%; }
 }
 @media (max-height: 500px){
     .hero { min-height: 100vh; padding: 80px 0 40px; }
@@ -924,12 +1025,4 @@ select:focus-visible, textarea:focus-visible {
     }
 }
 
-@media (max-width: 578px) {
-    .hero-bet-card {
-        transform: none !important;
-    }
-    #bet-card-1:hover, #bet-card-2:hover, #bet-card-3:hover {
-        transform: none !important;
-        box-shadow: none;
-    }
-}
+
