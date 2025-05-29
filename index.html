@@ -100,7 +100,7 @@
                 
                 <div class="highlight">
                     
-                    <button id="hero-main-cta" class="hero-cta-button highlight-cta-btn  animate-fade delay-2">
+                    <button class="hero-cta-button highlight-cta-btn animate-fade delay-2">
                         <span style="color: #fff;">GARANTA SUA</span> VAGA!
                     </button>
                 </div>
@@ -385,10 +385,9 @@
     const heroMainCtaButton = document.getElementById('hero-main-cta');
     if (heroMainCtaButton) {
         heroMainCtaButton.addEventListener('click', (e) => {
-            e.preventDefault(); // Previne qualquer comportamento padrão do botão
-            const targetElement = document.getElementById('final-cta'); // Ou 'final-button' se quiser o botão exato
+            e.preventDefault();
+            const targetElement = document.getElementById('final-cta');
             if (targetElement) {
-                console.log(`Botão Hero CTA clicado! Rolando para: #${targetElement.id}`);
                 targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
@@ -534,6 +533,26 @@
                 if (carouselTrack && carouselTrack.children.length === 0) console.warn("Carousel track has no items!");
             }
             // --- END OF CUSTOM CAROUSEL SCRIPT ---
+
+            document.querySelectorAll('.hero-cta-button, .highlight-cta-btn, .hcb, .hcta, .final-button').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById('final-cta');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            document.querySelectorAll('.highlight-cta-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById('final-cta');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
 
         });
     </script>
