@@ -357,7 +357,7 @@ body {
 /* Styles from previous .cta-section .cta-card (text based) are removed or repurposed */
 
 /* --- Guarantee Section --- */
-.guarantee { padding: 120px 0 90px; background-color: #10141F; position: relative; color: var(--light); z-index: 1; clip-path: polygon(0 5%, 100% 0, 100% 90%, 0 100%);}
+.guarantee { padding: 120px 0 90px; background-color: #10141F; position: relative; color: var(--light); z-index: 1 ; clip-path: polygon(0 5%, 100% 0, 100% 90%, 0 100%); height: 90%;}
 .guarantee-container { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
 .guarantee-content { flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center; }
 .guarantee-image { min-width: 280px; text-align: center; display: flex; justify-content: center; align-items: center; }
@@ -370,7 +370,7 @@ body {
 .guarantee h2 span { color: var(--primary); }
 .guarantee p { color: #b0bec5; margin-bottom: 25px;}
 .highlight {
-    background-image: url(/assets/images/cardPlano.png); background-size: cover; background-position: center; padding: 30px; border-radius: 12px;
+background-size: cover; background-position: center; padding: 30px; border-radius: 12px;
     margin: 30px 0;  position: relative; overflow: hidden;
     padding-bottom: 300px !important;
 }
