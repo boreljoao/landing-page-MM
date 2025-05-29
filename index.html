@@ -7,21 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body> 
 
     <section class="hero">
-        <div class="grafico-fundo"></div>
         <div class="particles-container" id="particles-js"></div>
         <div class="hero-content-wrapper container">
             <div class="hero-left-panel">
                 <div>
                     <div class="pro-code-logo-hero">
+                        <br>
                         <div class="logo-pro-code"></div>
-                       
+                        VOCE NÃO PRECISA MAIS CONTAR COM A SORTE
                     </div>
-                    <p>
+                    <p style="font-family: rajdhani;">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ut eius itaque inventore! Hic quam consequuntur, nam officiis quod est explicabo quo ipsum. Impedit officiis mollitia iusto molestias tempora lorem
                     </p>
                 </div>
@@ -54,7 +56,7 @@
             
             <div class="carousel-container" id="carousel-container">
                 <div class="carousel" id="carousel">
-                    <img draggable="false" src="/assets/images/cardroll1.png" alt="Card 1" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+1';">
+                    
                     <img draggable="false" src="/assets/images/cardroll2.png" alt="Card 2" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+2';">
                     <img draggable="false" src="/assets/images/cardroll3.png" alt="Card 3" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+3';">
                     <img draggable="false" src="/assets/images/cardroll4.png" alt="Card 4" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+4';">
@@ -62,7 +64,7 @@
                     <img draggable="false" src="/assets/images/cardroll6.png" alt="Card 6" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+6';">
                     <img draggable="false" src="/assets/images/cardroll17.png" alt="Card 7" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+7';">
                 
-                    <img draggable="false" src="/assets/images/cardroll1.png" alt="Card 1 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+1';">
+                    
                     <img draggable="false" src="/assets/images/cardroll2.png" alt="Card 2 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+2';">
                     <img draggable="false" src="/assets/images/cardroll3.png" alt="Card 3 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+3';">
                     <img draggable="false" src="/assets/images/cardroll4.png" alt="Card 4 Dupe" onerror="this.onerror=null;this.src='https://placehold.co/250x350/1A202C/FFFFFF?text=Card+4';">
@@ -78,8 +80,13 @@
         <div class="container">
             <div class="cta-content">
                 <div class="cta-card image-card acesso">
-                    <img src="/assets/images/cardAcesso.png" alt="Detalhes do Acesso PRO CODE" onerror="this.onerror=null;this.src='https://placehold.co/450x600/0E111A/FFFFFF?text=Card+Acesso';">
-                    <a href="#final-cta" class="cta-button-large card-cta-button animate-fade delay-4">GARANTIR MEU ACESSO</a> 
+                    
+                    <img src="/assets/images/cardAcesso.png" alt="Detalhes do Acesso PRO CODE" onerror="this.onerror=null;this.src='https://placehold.co/450x600/0E111A/FFFFFF?text=Card+Acesso';" >
+                    <button class="hero-cta-button hcb" id="hero-main-cta" onclick="window.location.href='#final-cta'">
+                        <span style="color: #fff;">GARANTA SUA</span> VAGA!
+                    </button>
+                    
+                    
                 </div>
 
                 <div class="cta-card image-card garantia">
@@ -118,7 +125,7 @@
                                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
                             </svg> Suporte Individual</p>
                     </div>
-                    <button id="hero-main-cta" class="hero-cta-button highlight-cta-btn">
+                    <button id="hero-main-cta" class="hero-cta-button highlight-cta-btn  animate-fade delay-2">
                         <span style="color: #fff;">GARANTA SUA</span> VAGA!
                     </button>
                 </div>
@@ -133,7 +140,7 @@
     <section class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2 style="color: var(--highlight);" class="animate-fade">MINHAS<span> APOSTAS</span></h2>
+                <h2 class="animate-fade">MINHAS<span> APOSTAS</span></h2>
                 <p class="animate-fade delay-1">Veja Um pouco Das Minhas Apostas</p>
             </div>
             
@@ -214,31 +221,85 @@
     
     <footer>
         <div class="container">
-            <a href="#" class="footer-logo">Métodos<span>ZeroRisco</span></a>
+            <a href="#" class="footer-logo">Pro<span>Code</span></a>
             
-            <div class="footer-links">
-                <a href="#">Termos de Uso</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Contato</a>
-                <a href="#">Dúvidas</a>
-                <a href="#">Garantia</a>
-            </div>
+            
             
             <div class="social-links">
-                <a href="#"><i class="fab fa-telegram"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
             
             <div class="copyright">
-                &copy; 2024 Métodos Zero Risco & PRO CODE. Todos os direitos reservados. <br>
-                Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.
-                <br> Site feito por <a style="color: var(--highlight); text-decoration: none;" href="https://boreljoao.github.io">João Pedro Borel</a>
+                &copy;ProCode. Todos os direitos reservados.      <a href="#terms-modal" data-bs-toggle="modal" class="text-white-50">Termos de Uso</a> e
+                <a href="#privacy-modal" data-bs-toggle="modal" class="text-white-50">Política de Privacidade</a> <a style="color: #fcfcfc; text-decoration: none;" href="https://boreljoao.github.io">João Pedro Borel</a>
             </div>
         </div>
     </footer>
-
+    <div class="modal fade" id="terms-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">Termos de Uso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Aceitação dos Termos</h6>
+                    <p>Ao acessar e utilizar o site ProCode, você concorda com estes Termos de Uso e com nossa Política de Privacidade.</p>
+                    
+                    <h6 class="mt-4">2. Uso do Site</h6>
+                    <p>O site destina-se à visualização e compra do método PRO CODE. Não é permitido:</p>
+                    <ul>
+                        <li>Usar para fins ilegais ou não autorizados</li>
+                        <li>Reproduzir conteúdo sem autorização</li>
+                        <li>Plagarizar o conteúdo</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">3. Propriedade Intelectual</h6>
+                    <p>Todos os direitos sobre o conteúdo, design e software do site são propriedade da ProCode ou de seus licenciadores.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Modal Política de Privacidade -->
+      <div class="modal fade" id="privacy-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">Política de Privacidade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Dados Coletados</h6>
+                    <p>Coletamos informações pessoais como nome, e-mail, telefone e dados de veículos quando você:</p>
+                    <ul>
+                        <li>Comprar o método</li>
+                        <li>Entrar em contato conosco</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">2. Uso dos Dados</h6>
+                    <p>Seus dados são usados para:</p>
+                    <ul>
+                        <li>Processar transações</li>
+                        <li>Melhorar nossos serviços</li>
+                        <li>Enviar comunicações relevantes</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">3. Segurança</h6>
+                    <p>Implementamos medidas de segurança para proteger suas informações contra acesso não autorizado.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- Scripts necessários para os modais (Bootstrap) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             

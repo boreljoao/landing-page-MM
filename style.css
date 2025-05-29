@@ -27,7 +27,6 @@ body {
     color: var(--light);
     line-height: 1.6;
     background-image: url('/assets/images/fundo.png'); /* CHECAR CAMINHO */
-    background-color: var(--dark); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
@@ -37,22 +36,6 @@ body {
     overflow-x: hidden;
 }
 
-body::before { 
-    content: '';
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(0, 169, 255, 0.05) 0%,  
-        rgba(247, 181, 0, 0.05) 50%, 
-        rgba(41, 121, 255, 0.05) 100%);
-    background-size: 300% 300%;
-    animation: GradientBackground 20s ease infinite;
-    z-index: -1; 
-    pointer-events: none;
-}
 
 /* --- Particle System --- */
 .particles-container {
@@ -71,6 +54,17 @@ body::before {
     border-radius: 50%;
     animation: float 10s ease-in-out infinite; 
 }
+.termos-container {
+    display: block !important; /* Força exibição */
+    position: relative;
+    z-index: 1;
+  }
+  
+  footer a.termos-link {
+    color: var(--primary);
+    text-decoration: underline;
+    cursor: pointer;
+  }
 .particle.small { width: 2px; height: 2px; animation-duration: 12s;}
 .particle.medium { width: 4px; height: 4px; animation-duration: 10s;}
 .particle.large { width: 6px; height: 6px; animation-duration: 8s;}
@@ -91,24 +85,7 @@ body::before {
 }
 
 /* --- Header --- */
-header {
-    background-color: rgba(16, 20, 31, 0.85); 
-    color: var(--light);
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0, 169, 255, 0.3);
-    transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-header.scrolled {
-    padding: 10px 0;
-    background-color: rgba(16, 20, 31, 0.95);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
+
 .header-container { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-size: 22px; font-weight: 800; color: var(--light); text-decoration: none; display: flex; align-items: center; }
 .logo span { color: var(--primary); margin-left: 5px; font-weight: 900; }
@@ -140,8 +117,13 @@ header.scrolled {
     transition: all 0.3s ease; cursor: pointer;
     width: 80%; text-transform: uppercase;
     border-radius: 20px; margin: 20px auto 0; 
+    animation: pulseButton 1.8s infinite;
 }
-.hero-cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(247, 181, 0, 0.7); }
+.hero-cta-button:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 25px rgba(247, 181, 0, 0.7); 
+    animation: none;
+}
 
 .cta-button-large { /* For mid-page CTA section card button */
     background: linear-gradient(45deg, var(--primary) 0%, var(--accent) 100%); /* Changed to blue to match image reference */
@@ -182,7 +164,7 @@ header.scrolled {
 /* --- Hero Section --- */
 .hero {
     color: var(--light); padding: 120px 0 80px; text-align: left;
-    position: relative; min-height: 700px; display: flex;
+    position: relative; min-height: 850px; display: flex;
     align-items: center; overflow: hidden; z-index: 1; 
 }
 .grafico-fundo { 
@@ -196,34 +178,39 @@ header.scrolled {
     width: 100%; max-width: 1100px; margin: 0 auto; display: flex;
 }
 .hero-left-panel {
-    width: 35%;
+    width: 40%;
     background-image: url('/assets/images/fundotexto.png'); /* CHECAR CAMINHO */
     background-size: cover; background-position: center;
-    padding: 10px 30px 30px 30px;
-    display: flex; flex-direction: column; justify-content: space-around;
-    border-radius: 12px 0 0 12px; height: 600px; align-self: center;
+    padding: 20px 40px 40px 40px;
+    display: flex; flex-direction: column; justify-content: center;
+    border-radius: 12px 0 0 12px; height: 700px; align-self: center;
     position: relative; z-index: 1; 
 }
 .hero-left-panel::before{
-    content: ''; position: absolute; top: -4%; left: 30.5%;
-    width: 150px; height: 150px;
+    content: ''; position: absolute; top: -5%; left: 50%;
+    transform: translateX(-50%);
+    width: 180px; height: 180px;
     background-image: url('/assets/images/logo-pro-code.png'); /* CHECAR CAMINHO */
     background-size: contain; background-repeat: no-repeat; background-position: center;
     z-index: 2; 
 }
 .pro-code-logo-hero { margin-bottom: 30px; }
 .pro-code-logo-hero h1 {
-    font-size: 3rem; font-weight: bold; color: white;
+    font-size: 3.5rem; font-weight: bold; color: white;
     text-shadow: 0 0 6px var(--primary), 0 0 12px var(--primary), 0 0 18px var(--accent), 0 0 24px var(--accent);
     letter-spacing: 2px; line-height: 0.9;
+}
+.hero-left-panel div p{
+    font-family: rajdhani;
+    font-size: 1.3rem;
 }
 .pro-code-logo-hero .line2 { margin-left: 30px; margin-top: -10px; }
 .pro-code-subtext-hero { display: flex; align-items: center; margin-top: 15px; font-size: 0.9rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
 .pro-code-subtext-hero i { margin-right: 8px; font-size: 1.2rem; }
-.hero-right-visuals { position: relative; flex-grow: 1; height: 580px; align-self: center; z-index: 2; }
+.hero-right-visuals { position: relative; flex-grow: 1; height: 800px; align-self: center; z-index: 2; }
 .hero-person-image { 
-    position: absolute; bottom: 0; left: 50%; transform: translateX(-45%);
-    width: 600px; height: 90%; object-fit: contain; z-index: 3; 
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 850px; height: 800px; object-fit: contain; z-index: 3; 
 }
 .hero-bet-card {
     position: absolute; width: 250px; /* Base width, will be overridden in media queries */
@@ -266,7 +253,6 @@ header.scrolled {
 /* --- Results Section (Contains JS Carousel) --- */
 .results {
     padding: 100px 0; /* Adjusted padding-bottom */
-    background: var(--dark); 
     position: relative; z-index: 1; color: var(--light);
     clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%); /* Optional clip-path */
 }
@@ -310,22 +296,49 @@ header.scrolled {
     /* clip-path: polygon(0 2%, 100% 0, 100% 90%, 0 100%); /* Consider removing or adjusting if it cuts off cards */
 }
 .cta-content { 
-    max-width: 1000px; margin: 0 auto;
-    display: flex; flex-wrap: wrap; 
-    justify-content: center; gap: 30px; 
+    max-width: 1400px; margin: 0 auto;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between; gap: 100px; 
     align-items: stretch; /* Changed from flex-start to stretch */
 }
 .cta-card.image-card {
     border-radius: 12px; 
     padding: 0; 
     flex: 1 1 400px; /* Allow growing and shrinking, base 400px */
-    max-width: 450px; 
-    min-width: 300px; /* Minimum width before wrapping */
     display: flex; flex-direction: column;
     align-items: center; 
     border: 1px solid rgba(var(--primary), 0.1); /* Subtle border */
-    overflow: hidden; /* Keep this to clip image to border-radius */
+    overflow: visible; /* Changed from hidden to allow button to show */
+    transform: scale(1.05); /* Adiciona um leve aumento */
+    transition: transform 0.3s ease;
 }
+.hcb {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 300px;
+    margin: 0;
+    border-radius: 50px;
+    padding: 12px 0;
+    background: linear-gradient(to right, var(--secondary), var(--highlight));
+    color: var(--dark);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(247, 181, 0, 0.3);
+    animation: none !important; /* Impede a herança da animação pulseButton */
+}
+
+.hcb:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(247, 181, 0, 0.5);
+}
+
 .cta-card.image-card img {
     width: 100%;
     height: auto; /* Let image height dictate card aspect ratio up to a point */
@@ -343,7 +356,7 @@ header.scrolled {
 /* Styles from previous .cta-section .cta-card (text based) are removed or repurposed */
 
 /* --- Guarantee Section --- */
-.guarantee { padding: 120px 0 90px; background-color: #10141ff5; position: relative; color: var(--light); z-index: 1; clip-path: polygon(0 5%, 100% 0, 100% 90%, 0 100%);}
+.guarantee { padding: 120px 0 90px; position: relative; color: var(--light); z-index: 1; clip-path: polygon(0 5%, 100% 0, 100% 90%, 0 100%);}
 .guarantee-container { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
 .guarantee-content { flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center; }
 .guarantee-image { min-width: 280px; text-align: center; display: flex; justify-content: center; align-items: center; }
@@ -356,7 +369,7 @@ header.scrolled {
 .guarantee h2 span { color: var(--primary); }
 .guarantee p { color: #b0bec5; margin-bottom: 25px;}
 .highlight {
-    background-color: rgba(0, 169, 255, 0.04); padding: 25px; border-radius: 12px;
+    background-color: var(--dark); padding: 30px; border-radius: 12px;
     margin: 30px 0;  position: relative; overflow: hidden;
 }
 
@@ -398,16 +411,10 @@ header.scrolled {
 }
 /* --- Testimonials Section --- */
 .testimonials {
-    padding: 100px 0; background-color: #131722; position: relative;
+    padding: 100px 0;position: relative;
     clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); color: var(--light); z-index: 1;
 }
-.testimonials::before {
-    content: ''; position: absolute; width: 100%; height: 100%;
-    background-image: url('/assets/images/grafico.png');
-    opacity: 0.1; z-index: 0; 
-    top: 5%;
-    right: -10%;
-}
+
 .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
 .testimonial-card {
     background-color: #1A202C; border-radius: 12px; padding: 25px;
@@ -436,7 +443,7 @@ header.scrolled {
 .rating { color: var(--highlight); margin-top: 4px; font-size: 0.9rem; }
 
 /* --- FAQ Section --- */
-.faq { padding: 100px 0; background-color: var(--dark); position: relative; color: var(--light); z-index: 1;}
+.faq { padding: 100px 0; position: relative; color: var(--light); z-index: 1;}
 .faq::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(16, 20, 31, 0.08), rgba(0, 169, 255, 0.015));
@@ -468,7 +475,6 @@ header.scrolled {
 
 /* --- Final CTA Section --- */
 .final-cta {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     color: var(--light); padding: 90px 0; text-align: center;
     position: relative; overflow: hidden;
     clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 90%);
@@ -477,11 +483,7 @@ header.scrolled {
 .hero-left-panel p{
     color: #ccc; font-size: 0.9rem; margin-top: 50px; line-height: 1.5; height: 100px; text-align: center;
 }
-.final-cta::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: url('https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center/cover;
-    opacity: 0.04; z-index: -1; 
-}
+
 .final-content { position: relative; z-index: 1; max-width: 750px; margin: 0 auto; }
 .final-cta h2 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; text-shadow: 0 3px 10px rgba(0,0,0,0.25); }
 .final-cta h2 span { color: var(--secondary); }
@@ -593,11 +595,21 @@ select:focus-visible, textarea:focus-visible {
     .highlight{
         height: 80%;
     }
+    .hcb {
+        padding: 10px 0;
+        font-size: 0.9rem;
+        width: 85%;
+    }
 }
 @media (max-width: 576px) {
     .highlight-price { font-size: 1.1rem; }
     .highlight-benefits { font-size: 0.85rem; }
     .highlight-cta-btn { font-size: 0.95rem; }
+    .hcb {
+        padding: 8px 0;
+        font-size: 0.8rem;
+        width: 80%;
+    }
 }
 @media (max-width: 400px) {
     .highlight-price { font-size: 0.95rem; }
@@ -684,7 +696,7 @@ select:focus-visible, textarea:focus-visible {
     .particles-container{ z-index: 0; } 
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .container { padding: 0 10px; } header .container { padding: 0 10px; }
     #coin-1 { width: 130px; height: 130px; bottom: 15%; left: 25%;}
     #coin-3 { width: 130px; height: 130px; top: 15%; right: 50%; }
@@ -697,7 +709,13 @@ select:focus-visible, textarea:focus-visible {
     .section-title p { font-size: 0.95rem; max-width: 90%; }
     .final-cta h2, .cta-section h2 { font-size: 1.8rem; } 
     .cta-section { margin: 30px 0 -30px; padding: 70px 0; }
-    .cta-card.image-card { max-width: 90%; /* Allow cards to be wider when stacked */ }
+    .cta-card.image-card {
+        max-width: 90%; /* Allow cards to be wider when stacked */
+        margin-bottom: 30px; /* Adiciona espaço abaixo de cada card */
+    }
+    .cta-card.image-card:last-child {
+        margin-bottom: 0; /* Remove do último card */
+    }
     .cta-card.acesso .card-cta-button { margin-top: 20px; }
 
     .guarantee { padding: 100px 0 60px; }
@@ -711,7 +729,7 @@ select:focus-visible, textarea:focus-visible {
         /* The button will naturally sit below the image due to flex-direction: column */
     }
     .highlight {
-        padding: 18px;
+        padding: 38px;
         width: 98%;
         border-radius: 18px;
     }
@@ -870,7 +888,7 @@ select:focus-visible, textarea:focus-visible {
     .final-cta h2, .cta-section h2 { font-size: 1.4rem; }
     #carousel img { width: 160px; height: 220px; }
     .highlight {
-        padding: 5px;
+        padding: 15px;
         border-radius: 8px;
     }
     .highlight-price {
