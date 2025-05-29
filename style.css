@@ -33,7 +33,6 @@ body {
     overflow-x: hidden;
     position: relative; 
     min-height: 100%;
-    overflow-x: hidden;
 }
 
 
@@ -589,6 +588,9 @@ select:focus-visible, textarea:focus-visible {
     .highlight-cta-btn { width: 90%; font-size: 1.1rem; }
 }
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Altera para scroll em telas menores */
+    }
     .highlight-price { font-size: 1.5rem; }
     .highlight-benefits { font-size: 1rem; }
     .highlight-cta-btn { width: 100%; font-size: 1rem; }
