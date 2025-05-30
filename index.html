@@ -19,6 +19,11 @@
     <meta property="twitter:title" content="PRÓ CODE - Método Profissional de Apostas Esportivas">
     <meta property="twitter:description" content="Aprenda métodos profissionais de apostas esportivas com a PRÓ CODE. Estratégias comprovadas, baixo risco e alto retorno.">
     <meta property="twitter:image" content="https://procodemetodos.com/assets/images/og-image.jpg">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+    <link rel="manifest" href="site.webmanifest"/>
     <link rel="preload" as="image" href="/assets/images/foto.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap">
@@ -96,7 +101,7 @@
         <div class="container guarantee-container">
             <div class="guarantee-content animate-fade">
                 <div class="section-title">
-                    <h2 style="font-size: 4rem;" class="animate-fade">PREÇO</h2>
+                    <h2 class="animate-fade">ACESSO EXCLUSIVO</h2>
                 </div>
                 <div class="highlight">
                     <button class="hero-cta-button highlight-cta-btn animate-fade delay-2">
@@ -179,7 +184,7 @@
         <div class="final-content">
             <h2 class="animate-fade"><span>PRONTO PARA TRANSFORMAR</span> SEUS RESULTADOS?</h2>
             <p class="animate-fade delay-1">Junte-se a centenas de pessoas que já estão mudando sua realidade financeira com métodos reais e sustentáveis.</p>
-            <a style="color: #fff;" href="#" class="final-button animate-fade delay-2" id="final-button">GARANTIR MEU <span style="color: #000000;">ACESSO AGORA</span></a>
+            <a style="color: #fff;" href="https://pay.kirvano.com/6b556898-9aa3-4499-a2cd-fbd136456742" class="final-button animate-fade delay-2" id="final-button">GARANTIR MEU <span style="color: #000000;">ACESSO AGORA</span></a>
         </div>
     </section>
     <footer>
@@ -553,25 +558,38 @@
         // This will effectively be the primary scroll handler for these specific buttons.
         document.querySelectorAll('.hero-cta-button.hcta, .hero-cta-button.hcb, .highlight-cta-btn, .final-button') // Made selectors more specific
                 .forEach(btn => {
-            // The button with id 'hero-main-cta-button' (which has class 'hcta') is already handled by ID above.
-            // Adding another listener is okay, both will fire, both preventDefault and scroll.
-            // The button with id 'access-card-cta-button' (class 'hcb') has an onclick. This listener will also fire.
             btn.addEventListener('click', function(e) {
-                // The onclick on 'access-card-cta-button' will navigate. If we preventDefault here, that onclick might not work as expected for its own navigation.
-                // However, since its onclick already does the job, and this script forces a scroll to #final-cta,
-                // for 'access-card-cta-button', its onclick `window.location.href='#final-cta'` is effectively what this script also does.
-                if (btn.id !== 'access-card-cta-button' || !btn.getAttribute('onclick')) { // Don't prevent default if it has an onclick that might be different
-                     e.preventDefault(); 
-                } else if (btn.id === 'access-card-cta-button' && btn.getAttribute('onclick') === "window.location.href='#final-cta'") {
-                    // If it's this specific button with this specific onclick, then preventDefault is fine as we are replicating behavior.
-                    e.preventDefault();
+                const hrefAttribute = btn.getAttribute('href');
+
+                // CASO 1: final-button com link externo
+                if ((btn.id === 'final-button' || btn.classList.contains('final-button')) && hrefAttribute && !hrefAttribute.startsWith('#')) {
+                    console.log(`Final button (${btn.id || 'class .final-button'}) with external link clicked. Explicitly navigating to: ${hrefAttribute}`);
+                    e.preventDefault(); // Prevenir a ação padrão, pois vamos navegar programaticamente
+                    window.location.href = hrefAttribute; // Navegação explícita
+                    return; // Sair do handler
                 }
 
+                // CASO 2: Outros botões neste handler, ou final-button com href de âncora ou sem href.
+                // Estes devem ter preventDefault() e rolar para #final-cta.
 
+                // Lógica de preventDefault (mantida como antes para os botões que devem ser afetados)
+                if (btn.id !== 'access-card-cta-button' || !btn.getAttribute('onclick')) {
+                     e.preventDefault(); 
+                } else if (btn.id === 'access-card-cta-button' && btn.getAttribute('onclick') === "window.location.href='#final-cta'") {
+                    // Este caso específico de 'access-card-cta-button' também tem seu default prevenido.
+                    e.preventDefault();
+                }
+                // Se não entrou no 'return' acima, e.preventDefault() foi chamado para os botões cobertos por este seletor
+                // que não se qualificam para a exceção do 'access-card-cta-button' com onclick específico.
+
+                // Todos os botões que chegam aqui (não são o final-button com link externo que retornou)
+                // devem rolar para #final-cta, conforme o comentário original do handler.
                 const target = document.getElementById('final-cta');
                 if (target) {
                     console.log(`Specific CTA Handler: Button "${btn.textContent.trim()}" scrolling to #final-cta`);
                     target.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    console.warn(`Specific CTA Handler: Target #final-cta not found.`);
                 }
             });
         });
