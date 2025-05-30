@@ -385,7 +385,7 @@ body {
 .guarantee h2 span { color: var(--primary); }
 .guarantee p { color: #b0bec5; margin-bottom: 25px;}
 .highlight {
-    background-image: url(/assets/images/hig.png);
+    background-image: url(/assets/images/infoscode5w8fwv2.png);
 background-size: cover; background-position: center; padding: 30px; border-radius: 12px;
     margin: 30px 0;  position: relative; overflow: hidden;
     padding-bottom: 60px !important;
@@ -812,10 +812,15 @@ select:focus-visible, textarea:focus-visible {
     }
     .highlight{
         padding-left: 40px !important;
+        margin: 0 !important;
+    }
+    .section-title{
+        margin-bottom: 0px;
     }
     .hcta{
         width: 60% !important; 
         font-size: 1rem !important;
+        margin-left: 10px !important;
     }
     .hcta{
         margin-left: -5px !important;
@@ -849,13 +854,7 @@ select:focus-visible, textarea:focus-visible {
         height: 500px; padding: 50px 15px 25px; /* padding-bottom de 25px já está aqui e é adequado */
         margin-bottom: 30px; border-radius: 12px;
     }
-    .hero-left-panel::before {
-        left: 50%; transform: translateX(-50%); top: -20px; 
-        width: 100px; height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+   
     .hero-left-panel p{
         font-size: 0.9rem;
         position: relative;
@@ -886,6 +885,7 @@ select:focus-visible, textarea:focus-visible {
     .hcta{
         width: 40%;
         margin-top: -10px;
+        margin-left: -5px !important;
     }
     #bet-card-1 { width: 250px; top: 5%; left: 58%; right: auto; }
     #bet-card-2 { width: 250px; bottom: 2%; right: 10%; left: auto; }
@@ -997,7 +997,7 @@ select:focus-visible, textarea:focus-visible {
         height: 100%;
         margin: 0 auto;
     }
-    .section-title h2 { font-size: 1.5rem; }
+    .section-title h2 { font-size: 1.5rem; margin-bottom: 0px; }
     .section-title p, .cta-section p, .final-cta p { font-size: 0.9rem; }
     #carousel-container { width: 95%; padding: 10px 0; }
     #carousel img { width: 200px; height: 280px; border-radius: 12px; gap: 10px;} 
@@ -1016,7 +1016,7 @@ select:focus-visible, textarea:focus-visible {
         margin-top: 20px; /* No overlap */
     }
 
-    .guarantee { padding: 80px 0 50px; } .guarantee h2 { font-size: 1.5rem; }
+    .guarantee { padding: 40px 0 20px; } .guarantee h2 { font-size: 1.5rem; }
     .guarantee p { font-size: 0.9rem; } .highlight { padding: 10px; }
     .highlight h3 { font-size: 1.2rem; } .guarantee-list li { font-size: 0.9rem; padding-left: 25px; }
     .guarantee-list li::before { font-size: 1rem; }
@@ -1063,6 +1063,7 @@ select:focus-visible, textarea:focus-visible {
     
     .guarantee-content{
         width: 50%;
+        padding: 30px 0 50px;
     }
 }
 @media (max-width: 461px) {
