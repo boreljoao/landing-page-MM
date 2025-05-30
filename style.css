@@ -385,7 +385,7 @@ body {
 .guarantee h2 span { color: var(--primary); }
 .guarantee p { color: #b0bec5; margin-bottom: 25px;}
 .highlight {
-    background-image: url(/assets/images/infoscode5w8fwv2.png);
+    background-image: url(/assets/images/hig.png);
 background-size: cover; background-position: center; padding: 30px; border-radius: 12px;
     margin: 30px 0;  position: relative; overflow: hidden;
     padding-bottom: 60px !important;
@@ -737,7 +737,7 @@ select:focus-visible, textarea:focus-visible {
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        padding-left: 10px;
+        padding-left: 80px;
         width: 100% !important;
     }
 
@@ -811,19 +811,18 @@ select:focus-visible, textarea:focus-visible {
         margin-left: 1px !important;
     }
     .highlight{
-        padding-left: 10px !important;
+        padding-left: 40px !important;
     }
     .hcta{
         width: 60% !important; 
         font-size: 1rem !important;
     }
+    .hcta{
+        margin-left: -5px !important;
+    }
 }
 
-@media (max-width: 400px) {
-    .highlight-price { font-size: 0.95rem; }
-    .highlight-benefits { font-size: 0.75rem; }
-    .highlight-cta-btn { width: 200px; margin-left: 10px; margin-top: auto; font-size: 0.85rem; padding: 8px 0; margin-bottom: 0; margin-right: 0; }
-}
+
 
 /* --- Media Queries (Consolidated & Hero Adjustments Prioritized) --- */
 
@@ -1138,6 +1137,18 @@ select:focus-visible, textarea:focus-visible {
         padding: 8px 0;
     }
 }
+@media (max-width: 400px) {
+    .highlight-price { font-size: 0.95rem; }
+    .highlight-benefits { font-size: 0.75rem; }
+    .highlight-cta-btn { width: 200px;  font-size: 0.85rem; padding: 8px 0;}
+    .highlight{
+        padding-left: 30px !important;
+    }
+    .highlight-cta-btn{
+       margin-bottom: 100px !important;
+    }
+
+}
 @media (max-width: 385px) {
     #bet-card-1 { width: 150px; top: 1%; left: 52%; }
     #bet-card-2 { width: 150px; bottom: 1%; right: 5%; }
@@ -1146,6 +1157,9 @@ select:focus-visible, textarea:focus-visible {
     #coin-3 { width: 55px; height: 85px; top: 30%; right: 10%; }
     .hero-person-image { width: 350px; left: -5%; }
     #coin-5 {  top: 13%; }
+    .highlight{
+        padding-left: 10px !important;
+    }
 }
 
 @media (max-width: 388px) {
