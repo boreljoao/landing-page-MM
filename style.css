@@ -191,7 +191,7 @@ body {
     display: flex;
 }
 .hero-left-panel {
-    width: 40%;
+    width: 50%;
     background-image: url('/assets/images/cardSemButton.png'); /* CHECAR CAMINHO */
     background-size: cover; background-position: center;
     display: flex; flex-direction: column; justify-content: flex-end; align-items: center; 
@@ -199,6 +199,7 @@ body {
     box-sizing: border-box; /* Garante que o padding não aumente a altura */
     border-radius: 12px 0 0 12px; height: 700px; align-self: center; z-index: 1; 
 }
+
 .hcta{
     width: 50% !important;
     font-size: 1.7rem !important;
@@ -223,7 +224,7 @@ body {
 }
 .hero-bet-card img { width: 100%; height: auto; display: block; border-radius: 10px; } /* Ensure images within cards are responsive */
 .hero-bet-card:hover { transform: scale(1.05); z-index: 6; animation-play-state: paused; } 
-#bet-card-1 { top: 5%; right: 14%; width: 300px; z-index: 3; animation-delay: 0.5s; } 
+#bet-card-1 { top: 5%; right: 8%; width: 300px; z-index: 3; animation-delay: 0.5s; } 
 #bet-card-2 {bottom: 10%; right: 11%; width: 350px; z-index: 4; animation-delay: 1s; } 
 #bet-card-3 { top: 29%; left: 10%; width: 320px; z-index: 4; animation-delay: 1.5s; }
 .hero-coin { position: absolute; object-fit: contain; animation: pulseCoin 3.5s infinite ease-in-out; z-index: 5; }
@@ -699,6 +700,11 @@ select:focus-visible, textarea:focus-visible {
     }
 
 }
+@media (max-width: 1337px) {
+    .hero-cta-button{
+        font-size: 1.2rem !important;
+    }
+}
 @media (max-width: 992px) {
     .highlight-price { font-size: 3rem; }
     .highlight-benefits { font-size: 1.5rem; }
@@ -707,7 +713,7 @@ select:focus-visible, textarea:focus-visible {
         padding: 10px 0 !important;
         width: 250px !important;
         margin-top: 399px !important;
-        margin-left: 50px !important;
+        margin-left: 0px !important;
     }
     .highlight{
         background-size: contain;
@@ -840,7 +846,9 @@ select:focus-visible, textarea:focus-visible {
         left: 25%;
     margin-top: -50px;
     }
-    
+    .hero-cta-button{
+        margin-bottom: 60px !important;
+    }
     .pro-code-logo-hero h1 { font-size: 2.2rem; }
     .pro-code-logo-hero .line2 { margin-left: 0; }
     .pro-code-subtext-hero { justify-content: center; }
