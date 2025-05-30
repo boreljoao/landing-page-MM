@@ -86,7 +86,7 @@
             <div class="cta-content">
                 <div class="cta-card image-card acesso">
                     <img src="/assets/images/cardAcesso.png" alt="Detalhes do Acesso PRO CODE" onerror="this.onerror=null;this.src='https://placehold.co/450x600/0E111A/FFFFFF?text=Card+Acesso';">
-                    <button class="hero-cta-button hcb" id="access-card-cta-button" onclick="window.location.href='#final-cta'">
+                    <button class="hero-cta-button hcb" id="access-card-cta-button" onclick="window.location.href='https://pay.kirvano.com/6b556898-9aa3-4499-a2cd-fbd136456742'">
                         <span style="color: #fff;">ENTRE</span> AGORA!
                     </button>
                 </div>
@@ -408,17 +408,17 @@
         }
 
         // Specific scroll for the main hero CTA button (now with unique ID 'hero-main-cta-button')
-        const heroMainCtaButtonById = document.getElementById('hero-main-cta-button'); // Updated ID
-        if (heroMainCtaButtonById) {
-            heroMainCtaButtonById.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                const targetElement = document.getElementById('final-cta');
-                if (targetElement) {
-                    console.log("Hero Main CTA (by ID) clicked, scrolling to #final-cta");
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        }
+        // const heroMainCtaButtonById = document.getElementById('hero-main-cta-button'); // Updated ID
+        // if (heroMainCtaButtonById) {
+        //     heroMainCtaButtonById.addEventListener('click', (e) => {
+        //         e.preventDefault(); 
+        //         const targetElement = document.getElementById('final-cta');
+        //         if (targetElement) {
+        //             console.log("Hero Main CTA (by ID) clicked, scrolling to #final-cta");
+        //             targetElement.scrollIntoView({ behavior: 'smooth' });
+        //         }
+        //     });
+        // }
         
         const heroSection = document.querySelector('.hero');
         const coins = document.querySelectorAll('.hero-coin');
@@ -559,38 +559,10 @@
         document.querySelectorAll('.hero-cta-button.hcta, .hero-cta-button.hcb, .highlight-cta-btn, .final-button') // Made selectors more specific
                 .forEach(btn => {
             btn.addEventListener('click', function(e) {
-                const hrefAttribute = btn.getAttribute('href');
-
-                // CASO 1: final-button com link externo
-                if ((btn.id === 'final-button' || btn.classList.contains('final-button')) && hrefAttribute && !hrefAttribute.startsWith('#')) {
-                    console.log(`Final button (${btn.id || 'class .final-button'}) with external link clicked. Explicitly navigating to: ${hrefAttribute}`);
-                    e.preventDefault(); // Prevenir a ação padrão, pois vamos navegar programaticamente
-                    window.location.href = hrefAttribute; // Navegação explícita
-                    return; // Sair do handler
-                }
-
-                // CASO 2: Outros botões neste handler, ou final-button com href de âncora ou sem href.
-                // Estes devem ter preventDefault() e rolar para #final-cta.
-
-                // Lógica de preventDefault (mantida como antes para os botões que devem ser afetados)
-                if (btn.id !== 'access-card-cta-button' || !btn.getAttribute('onclick')) {
-                     e.preventDefault(); 
-                } else if (btn.id === 'access-card-cta-button' && btn.getAttribute('onclick') === "window.location.href='#final-cta'") {
-                    // Este caso específico de 'access-card-cta-button' também tem seu default prevenido.
-                    e.preventDefault();
-                }
-                // Se não entrou no 'return' acima, e.preventDefault() foi chamado para os botões cobertos por este seletor
-                // que não se qualificam para a exceção do 'access-card-cta-button' com onclick específico.
-
-                // Todos os botões que chegam aqui (não são o final-button com link externo que retornou)
-                // devem rolar para #final-cta, conforme o comentário original do handler.
-                const target = document.getElementById('final-cta');
-                if (target) {
-                    console.log(`Specific CTA Handler: Button "${btn.textContent.trim()}" scrolling to #final-cta`);
-                    target.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    console.warn(`Specific CTA Handler: Target #final-cta not found.`);
-                }
+                const paymentLink = "https://pay.kirvano.com/6b556898-9aa3-4499-a2cd-fbd136456742";
+                console.log(`CTA Button "${btn.textContent.trim()}" clicked. Redirecting to: ${paymentLink}`);
+                e.preventDefault(); // Prevenir qualquer ação padrão ou de outros scripts
+                window.location.href = paymentLink; // Redirecionar para o link de pagamento
             });
         });
         // The original querySelectorAll('.hero-cta-button, .highlight-cta-btn, .hcb, .hcta, .final-button') was broad.
