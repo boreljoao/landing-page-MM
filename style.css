@@ -197,12 +197,17 @@ body {
     display: flex; flex-direction: column; justify-content: flex-end; align-items: center; 
     padding-bottom: 110px; /* Espaçamento para o botão no final */
     box-sizing: border-box; /* Garante que o padding não aumente a altura */
-    border-radius: 12px 0 0 12px; height: 700px; align-self: center; z-index: 1; 
+    border-radius: 12px 0 0 12px; height: 700px; align-self: center; 
+    z-index: 1; 
 }
 
 .hcta{
-    width: 50% !important;
-    font-size: 1.7rem !important;
+    width: 48% !important;
+    font-size: 2rem !important;
+    margin-left: -10px;
+    padding: 8px 1px !important;
+    font-weight: bold !important;
+    margin-bottom: 22px !important; 
 }
 .hero-left-panel div p{
     font-family: rajdhani;
@@ -628,6 +633,11 @@ select:focus-visible, textarea:focus-visible {
     #coin-3 { width: 130px; height: 130px; top: 35%; right: 11%;}
     #coin-5 { width: 130px; height: 130px; top: 20%; right: 65%;} 
 }
+@media (max-width: 1534px) {
+    .hcta{
+        font-size: 1.75rem !important;
+    }
+}
 @media (max-width: 1466px) {
     #bet-card-1 { top: 6%; right: 8%; width: 280px; }
     #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
@@ -635,6 +645,11 @@ select:focus-visible, textarea:focus-visible {
     #coin-1 { width: 200px; height: 200px; bottom: 12%; left: 18%; }
     #coin-3 { width: 130px; height: 130px; top: 35%; right: 8%; }
     #coin-5 { width: 130px; height: 130px; top: 20%; right: 60%; }
+}
+@media (max-width: 1351px) {
+    .hcta{
+        font-size: 1.5rem !important;
+    }
 }
 @media (max-width: 1348px) {
     #bet-card-1 { top: 6%; right: 5%; width: 280px; }
@@ -688,7 +703,10 @@ select:focus-visible, textarea:focus-visible {
     .hero-content-wrapper{
         flex-direction: column;
     }
-    
+    .hcta{
+        margin-bottom: 30px !important;
+        width: 60% !important;
+    }
     #bet-card-1 { top: 6%; right: 14.5%; width: 280px; }
     #bet-card-2 { bottom: 8%; right: 7%; width: 320px; }
     #bet-card-3 { top: 29%; left: 1%; width: 300px; } /* Mantendo left: 5% como em 1565px e 1013px */
@@ -742,10 +760,14 @@ select:focus-visible, textarea:focus-visible {
     }
 }
 @media (max-width: 628px) {
-    .highlight-cta-btn { width: 30% !important; margin-left: 100px !important; font-size: 0.5rem !important; margin-bottom: 100px !important; padding: 5px 0 !important;}
+    .highlight-cta-btn { width: 40% !important; margin-left: 100px !important; font-size: 0.8rem !important; margin-bottom: 120px !important; padding: 5px 0 !important;}
     .highlight{
-        padding-left: 90px !important;
+        padding-left: 60px !important;
     }
+    .highlight-cta-btn{
+        margin-top: 330px !important;
+    }
+
 }
 @media (max-width: 511px) {
     .highlight-cta-btn { width: 30% !important; margin-left: 100px !important; margin-top: 230px !important; font-size: 0.5rem !important; margin-bottom: 0; padding: 5px 0 !important;}
@@ -796,11 +818,7 @@ select:focus-visible, textarea:focus-visible {
         font-size: 1rem !important;
     }
 }
-@media (max-width: 426px) {
-    .hcb{
-        width: 70% !important;
-    }
-}
+
 @media (max-width: 400px) {
     .highlight-price { font-size: 0.95rem; }
     .highlight-benefits { font-size: 0.75rem; }
@@ -854,7 +872,10 @@ select:focus-visible, textarea:focus-visible {
     .pro-code-subtext-hero { justify-content: center; }
     .hero-cta-button { width: 85%; /* margin-top: 20px; Removido */ }
 
-
+    .hcb{
+        width: 320px !important;
+        margin-bottom: 8px !important;
+    }
     .hero-right-visuals { width: 100%; height: auto; min-height: 400px; position: relative; } 
     .hero-person-image{
         width: 80%; max-width: 550px; 
@@ -939,7 +960,11 @@ select:focus-visible, textarea:focus-visible {
     #coin-5 { width: 100px; height: 100px; top: 40%; right: 5%; }   
 
 }
-
+@media (max-width: 587px) {
+    .hcta{
+        margin-bottom: 80px !important;
+    }
+}
 @media (max-width: 576px) { 
     body { font-size: 14px; }
     header { padding: 10px 0; }
@@ -1068,6 +1093,12 @@ select:focus-visible, textarea:focus-visible {
     #bet-card-3 { width: 180px; top: 30%; left: -5%; }
 
 }
+@media (max-width: 426px) {
+    .hcb{
+        width: 250px !important;
+        padding: 0px 0px !important;
+    }
+}
 @media (max-width: 400px) { 
     .hero-left-panel::before { width: 130px; height: 130px; top: -15px; }
     .hero-left-panel p{
@@ -1117,7 +1148,9 @@ select:focus-visible, textarea:focus-visible {
     #coin-5 {  top: 13%; }
 }
 
-
+@media (max-width: 388px) {
+    
+}
 
 
 
@@ -1146,6 +1179,9 @@ select:focus-visible, textarea:focus-visible {
     }
     .highlight-cta-btn{
         margin-top: 200px !important;
+    }
+    .hcb{
+        width: 200px !important;
     }
 }
 @media (max-width: 338px) {
